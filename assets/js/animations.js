@@ -2510,7 +2510,7 @@ function runBinarySearchTree(canvas, ctx, logBox, runBtn) {
     if (searchIdx < currentPath.length) {
       const activeVal = currentPath[searchIdx];
       drawTree(activeVal);
-      logBox.innerHTML += `<span class="log-line info">&gt; Inspecting node: ${activeVal}. ${60 &gt; activeVal ? 'Right' : (60 &lt; activeVal ? 'Left' : 'Key Found!')} path taken.</span>`;
+      logBox.innerHTML += `<span class="log-line info">&gt; Inspecting node: ${activeVal}. ${60 > activeVal ? 'Right' : (60 < activeVal ? 'Left' : 'Key Found!')} path taken.</span>`;
       logBox.scrollTop = logBox.scrollHeight;
       searchIdx++;
     } else {
