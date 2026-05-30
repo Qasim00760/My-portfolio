@@ -10,10 +10,10 @@
 
   /* Theme Colors (Default Dark - OLED Pitch Black Theme) */
   --bg-deep: #000000;
-  --bg-dark: #050505;
-  --bg-card: rgba(10, 10, 10, 0.65);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(0, 212, 255, 0.45);
+  --bg-dark: #000000;
+  --bg-card: #050505;
+  --border-glass: rgba(255, 255, 255, 0.05);
+  --border-glass-hover: rgba(255, 255, 255, 0.1);
 
   /* Neon Accents */
   --primary: #00d4ff;       /* Cyan Glow */
@@ -26,9 +26,9 @@
   --text-muted: #64748b;
 
   /* Shadows & Glows */
-  --glow-primary: rgba(0, 212, 255, 0.25);
-  --glow-secondary: rgba(139, 92, 246, 0.25);
-  --shadow-card: 0 12px 40px 0 rgba(0, 0, 0, 0.8);
+  --glow-primary: rgba(0, 212, 255, 0.12);
+  --glow-secondary: rgba(139, 92, 246, 0.12);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.85);
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,11 +75,7 @@ html {
 
 body {
   background-color: var(--bg-deep);
-  background-image: 
-    linear-gradient(rgba(0, 212, 255, 0.012) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.012) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center;
+  background-image: none;
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
