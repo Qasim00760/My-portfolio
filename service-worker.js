@@ -64,7 +64,7 @@ self.addEventListener('install', event => {
 // ACTIVATE: Remove all old caches
 // =============================================
 self.addEventListener('activate', event => {
-  const validCaches = [STATIC_CACHE, CDN_CACHE];
+  const validCaches = [CACHE_NAME, STATIC_CACHE, CDN_CACHE];
   event.waitUntil(
     caches.keys().then(cacheNames =>
       Promise.all(
@@ -77,6 +77,12 @@ self.addEventListener('activate', event => {
       )
     ).then(() => self.clients.claim())
   );
+});
+
+self.addEventListener('message', event => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 // =============================================
@@ -126,7 +132,7 @@ self.addEventListener('fetch', event => {
 
   // ---- Local assets: Network-First for main JS files, Stale-While-Revalidate for others ----
   if (url.origin === self.location.origin) {
-    const isCoreScript = url.pathname.endsWith('/script.js') || url.pathname.endsWith('/animations.js');
+    const isCoreScript = url.pathname.endsWith('/script.js') || url.pathname.endsWith('/animations.js') || url.pathname.endsWith('/style.css');
 
     if (isCoreScript) {
       // Network-First strategy: always fetch live updates when online, fallback to cache when offline
