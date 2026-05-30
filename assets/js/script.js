@@ -141,17 +141,21 @@ const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
 // add event to all nav link
+// FIX: Use index-based matching instead of innerHTML text comparison.
+// This ensures Urdu/translated navigation links still switch pages correctly,
+// since the translated text (e.g. "تعارف") never matches the English data-page value (e.g. "about").
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    const clickedIndex = Array.from(navigationLinks).indexOf(this);
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
+    for (let j = 0; j < pages.length; j++) {
+      if (j === clickedIndex) {
+        pages[j].classList.add("active");
+        navigationLinks[j].classList.add("active");
         window.scrollTo(0, 0);
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        pages[j].classList.remove("active");
+        navigationLinks[j].classList.remove("active");
       }
     }
 

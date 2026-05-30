@@ -17,6 +17,11 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/Qasim.Png" type="image/x-icon">
 
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="./assets/css/style.css" as="style">
+  <link rel="preload" href="./assets/js/script.js" as="script">
+  <link rel="preload" href="./assets/js/animations.js" as="script">
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -36,6 +41,10 @@
   <div class="top-controls-container">
     <button class="lang-toggle-btn" id="lang-toggle" title="Switch Language (Urdu / English)">
       <span class="lang-text">اردو</span>
+    </button>
+    <button class="focus-toggle-btn" id="focus-toggle" title="Toggle Focus Mode (Accessibility)">
+      <ion-icon name="eye-off-outline" class="focus-off-icon"></ion-icon>
+      <ion-icon name="eye-outline" class="focus-on-icon" style="display: none;"></ion-icon>
     </button>
     <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme Modes">
       <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
@@ -133,6 +142,22 @@
             <span class="eq-bar"></span>
             <span class="eq-bar"></span>
             <span class="eq-bar"></span>
+          </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <!-- Gamified Badges Shelf -->
+        <div class="badges-shelf-container">
+          <p class="badges-shelf-title"><ion-icon name="trophy-outline"></ion-icon> Achievements (<span id="badges-unlocked-count">0</span>/7)</p>
+          <div class="badges-shelf" id="badges-shelf">
+            <span class="badge-slotLocked" id="badge-explorer" title="Curious Explorer: Visited all sections"><ion-icon name="compass-outline"></ion-icon></span>
+            <span class="badge-slotLocked" id="badge-commander" title="Command Commander: Ran a shell command"><ion-icon name="terminal-outline"></ion-icon></span>
+            <span class="badge-slotLocked" id="badge-validator" title="Model Validator: Checked sentiment sandbox"><ion-icon name="analytics-outline"></ion-icon></span>
+            <span class="badge-slotLocked" id="badge-creator" title="Creative Seeder: Seeded a generative artwork"><ion-icon name="sparkles-outline"></ion-icon></span>
+            <span class="badge-slotLocked" id="badge-analyzer" title="Job Match Checked: Checked job compatibility"><ion-icon name="briefcase-outline"></ion-icon></span>
+            <span class="badge-slotLocked" id="badge-gamer" title="Retro Gamer: Initiated Cyber-Snake model training"><ion-icon name="game-controller-outline"></ion-icon></span>
+            <span class="badge-slotLocked" id="badge-collaborator" title="Innovation Partner: Submitted a project proposal"><ion-icon name="people-outline"></ion-icon></span>
           </div>
         </div>
 
@@ -407,11 +432,84 @@
               <div class="dash-stat"><span class="dash-val">3</span> Active Competitions</div>
             </div>
 
+            <div class="dashboard-card real-time-feed">
+              <h4 class="dashboard-card-title"><ion-icon name="pulse-outline"></ion-icon> Real-Time Data Feed</h4>
+              <div class="dash-stat">
+                <span class="dash-feed-label">BTC Price:</span> 
+                <span class="dash-val" id="feed-btc-price">Fetching...</span>
+              </div>
+              <div class="dash-stat">
+                <span class="dash-feed-label">ETH Price:</span> 
+                <span class="dash-val" id="feed-eth-price">Fetching...</span>
+              </div>
+              <div class="dash-stat">
+                <span class="dash-feed-label">HU Weather:</span> 
+                <span class="dash-val" id="feed-weather">Fetching...</span>
+              </div>
+              <span class="feed-timestamp" id="feed-time">Last update: --</span>
+            </div>
+
             <div class="dashboard-card contribution-graph">
               <h4 class="dashboard-card-title"><ion-icon name="git-commit-outline"></ion-icon> Developer Activity Map</h4>
               <div class="contrib-grid-wrapper">
                 <div class="contrib-grid" id="contrib-grid"></div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Project Journey Map -->
+        <section class="journey-map-section">
+          <h3 class="h3 journey-map-title">Interactive Project Journey Map</h3>
+          <p class="journey-map-subtitle">Click on the active neural nodes to trace the dataset pipelines and deployment zones.</p>
+          
+          <div class="journey-map-container reveal-on-scroll">
+            <div class="journey-svg-wrapper">
+              <svg viewBox="0 0 600 240" class="journey-svg">
+                <!-- Grid dots background -->
+                <defs>
+                  <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-dots)" rx="16" />
+                
+                <!-- Connections with animated glowing paths -->
+                <path d="M 120 120 L 300 120" stroke="rgba(139, 92, 246, 0.2)" stroke-width="3" />
+                <path d="M 300 120 L 480 120" stroke="rgba(0, 212, 255, 0.2)" stroke-width="3" />
+                <path id="journey-flow-1" d="M 120 120 L 300 120" stroke="var(--secondary)" stroke-dasharray="10 150" stroke-dashoffset="0" stroke-width="3" stroke-linecap="round" />
+                <path id="journey-flow-2" d="M 300 120 L 480 120" stroke="var(--primary)" stroke-dasharray="10 150" stroke-dashoffset="0" stroke-width="3" stroke-linecap="round" />
+                
+                <!-- Node 1: Raw Kaggle Data -->
+                <g class="map-node" data-node="kaggle" transform="translate(120, 120)">
+                  <circle r="22" class="node-glow secondary" />
+                  <circle r="14" class="node-core secondary" />
+                  <text y="38" text-anchor="middle" class="node-label">Global Datasets</text>
+                  <text y="52" text-anchor="middle" class="node-sublabel">Raw Data Seed</text>
+                </g>
+                
+                <!-- Node 2: Processing KPK -->
+                <g class="map-node" data-node="university" transform="translate(300, 120)">
+                  <circle r="22" class="node-glow accent" />
+                  <circle r="14" class="node-core accent" />
+                  <text y="38" text-anchor="middle" class="node-label">Hazara Campus</text>
+                  <text y="52" text-anchor="middle" class="node-sublabel">Model Training KPK</text>
+                </g>
+                
+                <!-- Node 3: AWS Cloud Deployment -->
+                <g class="map-node" data-node="aws" transform="translate(480, 120)">
+                  <circle r="22" class="node-glow primary" />
+                  <circle r="14" class="node-core primary" />
+                  <text y="38" text-anchor="middle" class="node-label">AWS Cloud</text>
+                  <text y="52" text-anchor="middle" class="node-sublabel">Deployed API Nodes</text>
+                </g>
+              </svg>
+            </div>
+            
+            <!-- Node Detail Card Overlay -->
+            <div class="map-node-detail-card" id="map-node-detail">
+              <h5 class="map-detail-title" id="map-detail-title">Click a node to inspect</h5>
+              <p class="map-detail-desc" id="map-detail-desc">Interactive data-visualization map. Select any glowing coordinate above to read details.</p>
             </div>
           </div>
         </section>
@@ -578,6 +676,43 @@
         <header>
           <h2 class="h2 article-title">Resume</h2>
         </header>
+
+        <!-- Recruiter AI Resume Compatibility Analyzer -->
+        <section class="resume-analyzer-section">
+          <h3 class="h3 section-title">🔍 Recruiter AI Resume Analyzer</h3>
+          <p class="analyzer-subtitle">Paste a Job Description (JD) below to automatically audit my qualifications and calculate a dynamic fit percentage!</p>
+          
+          <div class="analyzer-card content-card">
+            <div class="analyzer-inputs">
+              <textarea id="jd-input" class="analyzer-textarea" placeholder="Paste the job description here... (e.g., 'Looking for a Data Scientist with Python, SQL, and Machine learning model building experience...')"></textarea>
+              <button class="analyzer-btn primary" id="analyzer-btn">
+                <ion-icon name="pulse-outline"></ion-icon> Analyze Compatibility
+              </button>
+            </div>
+            
+            <div class="analyzer-results" id="analyzer-results" style="display: none;">
+              <div class="analyzer-gauge-wrapper">
+                <svg viewBox="0 0 100 100" class="analyzer-gauge">
+                  <circle cx="50" cy="50" r="40" class="gauge-bg"></circle>
+                  <circle cx="50" cy="50" r="40" class="gauge-fill" id="gauge-fill" stroke-dasharray="251" stroke-dashoffset="251"></circle>
+                  <text x="50" y="55" text-anchor="middle" class="gauge-text" id="gauge-value">0%</text>
+                </svg>
+                <div class="gauge-label">Audit Match Index</div>
+              </div>
+              
+              <div class="analyzer-feedback">
+                <h4 class="feedback-title" id="feedback-match-title">Computing alignment...</h4>
+                <div class="feedback-tags-row">
+                  <h5>Matching Core Skills:</h5>
+                  <div class="feedback-tags" id="feedback-matches">
+                    <!-- Matched tags injected here -->
+                  </div>
+                </div>
+                <p class="feedback-desc" id="feedback-summary">System analyzed job parameters against Qasim's academic progress node, scikit-learn models pipeline, and Devsil internship datasets check.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!-- Education -->
         <section class="timeline">
@@ -866,6 +1001,58 @@
           </ul>
         </section>
 
+        <!-- Interactive Learning Path Visualizer -->
+        <section class="learning-path-section">
+          <h3 class="h3 section-title">🎓 Interactive Learning Path Visualizer</h3>
+          <p class="learning-path-subtitle">Hover on nodes to unlock certification metadata, study hours, and credential hashes.</p>
+          
+          <div class="learning-path-tree content-card">
+            <div class="tree-line"></div>
+            
+            <!-- Path Node 1 -->
+            <div class="tree-node active-node" data-meta="bs-cs">
+              <div class="node-marker"></div>
+              <div class="node-card">
+                <span class="node-date">2024 — Present</span>
+                <h4 class="h4 node-title">BS Computer Science</h4>
+                <p class="node-text">Hazara University KPK. Core data structures, SQL databases, and algorithmic paradigms.</p>
+                <div class="node-expanded-info">
+                  <span>🎓 Status: Completed 3 Semesters</span>
+                  <span>📚 Focus: Design & Analysis of Algorithms</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Path Node 2 -->
+            <div class="tree-node" data-meta="devsil">
+              <div class="node-marker"></div>
+              <div class="node-card">
+                <span class="node-date">Feb 2024 — May 2024</span>
+                <h4 class="h4 node-title">Internship: Data Science</h4>
+                <p class="node-text">3-month internship at Devsil. Preprocessed enterprise sales datasets, compiled metrics.</p>
+                <div class="node-expanded-info">
+                  <span>🏢 Organization: Devsil Software Co.</span>
+                  <span>⚙️ Operations: Scikit-learn pipelines, outlier filters</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Path Node 3 -->
+            <div class="tree-node" data-meta="python-chilla">
+              <div class="node-marker"></div>
+              <div class="node-card">
+                <span class="node-date">2024</span>
+                <h4 class="h4 node-title">Python Ka Chilla Certification</h4>
+                <p class="node-text">40-Days Intensive Bootcamp on Advanced Python, Pandas, Matplotlib, and Scikit-Learn.</p>
+                <div class="node-expanded-info">
+                  <span>🏆 Certification Body: Codanics Node</span>
+                  <span>🏷️ Verification Badge: Active Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </article>
 
 
@@ -911,9 +1098,54 @@
       <!-- PORTFOLIO / PROJECTS & ML DEMO -->
       <article class="portfolio" data-page="portfolio">
 
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
+         <header>
+           <h2 class="h2 article-title">Portfolio</h2>
+         </header>
+
+         <!-- Project Screenshots Carousel -->
+         <section class="project-carousel-section">
+           <h3 class="h3 section-title">📸 Project Showcases Gallery</h3>
+           
+           <div class="carousel-container reveal-on-scroll">
+             <div class="carousel-track" id="carousel-track">
+               <!-- Slide 1 -->
+               <div class="carousel-slide active">
+                 <img src="./assets/images/STUDENT MARKS ANALAYSIS.png" alt="Student Marks Analysis Dashboard">
+                 <div class="slide-caption">
+                   <h4>Student Marks Analysis Dashboard</h4>
+                   <p>Density graphs, subject variances, and automated scoring clusters.</p>
+                 </div>
+               </div>
+               
+               <!-- Slide 2 -->
+               <div class="carousel-slide">
+                 <img src="./assets/images/exploratory data.png" alt="Retail EDA Sandbox Output">
+                 <div class="slide-caption">
+                   <h4>Exploratory Data Retail Analytics</h4>
+                   <p>RFM demand analysis maps, anomaly filters, and categories tracking.</p>
+                 </div>
+               </div>
+               
+               <!-- Slide 3 -->
+               <div class="carousel-slide">
+                 <img src="./assets/images/Document_scanner.png" alt="OpenCV Document Scanner Engine">
+                 <div class="slide-caption">
+                   <h4>OpenCV Live Document Scanner</h4>
+                   <p>Warp corrections, edge traces, and perspective alignments.</p>
+                 </div>
+               </div>
+             </div>
+             
+             <button class="carousel-arrow prev" id="carousel-prev-btn"><ion-icon name="chevron-back-outline"></ion-icon></button>
+             <button class="carousel-arrow next" id="carousel-next-btn"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+             
+             <div class="carousel-indicators" id="carousel-dots">
+               <span class="dot active" data-slide="0"></span>
+               <span class="dot" data-slide="1"></span>
+               <span class="dot" data-slide="2"></span>
+             </div>
+           </div>
+         </section>
 
         <section class="projects">
 
@@ -1338,6 +1570,42 @@
           </div>
         </section>
 
+        <!-- Live Algorithms Visual Code Playground -->
+        <section class="code-playground-section">
+          <h3 class="h3 section-title">🧪 Live Algorithms Playground</h3>
+          <p class="code-playground-subtitle">Choose a computer science algorithm to trigger visual execution inside the browser canvas.</p>
+          
+          <div class="playground-card content-card reveal-on-scroll">
+            <div class="playground-controls">
+              <div class="control-group">
+                <label for="algorithm-select">Select Algorithm:</label>
+                <select id="algorithm-select" class="playground-select">
+                  <option value="bubble-sort">Bubble Sort Complexity (O(n²))</option>
+                  <option value="binary-search">Binary Search Tree (O(log n))</option>
+                  <option value="regression">Gradient Descent Convergence</option>
+                </select>
+              </div>
+              
+              <div class="playground-buttons">
+                <button class="playground-btn primary" id="playground-run-btn">
+                  <ion-icon name="play-outline"></ion-icon> Run Algorithm
+                </button>
+                <button class="playground-btn secondary" id="playground-reset-btn" disabled>
+                  <ion-icon name="refresh-outline"></ion-icon> Reset Visualizer
+                </button>
+              </div>
+            </div>
+            
+            <!-- Visualization viewport panel -->
+            <div class="playground-viewport" id="playground-canvas-area">
+              <canvas id="playground-canvas" width="500" height="240"></canvas>
+              <div class="playground-terminal-output" id="playground-log">
+                <span class="log-line system">&gt; Core algorithm loader initialized. Select an algorithm above to begin simulation.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- Case Study Modal Panel Slideout -->
         <div class="case-study-drawer" id="case-study-drawer">
           <div class="drawer-overlay" id="drawer-close-overlay"></div>
@@ -1378,6 +1646,24 @@
           </form>
         </section>
 
+        <!-- Email Newsletter Subscription Form -->
+        <section class="newsletter-subscription-section">
+          <div class="newsletter-card content-card">
+            <div class="newsletter-icon">
+              <ion-icon name="mail-unread-outline"></ion-icon>
+            </div>
+            <div class="newsletter-info">
+              <h4 class="h4 newsletter-title">Subscribe to Qasim's AI Newsletter</h4>
+              <p class="newsletter-desc">Get notified directly when Qasim deploys new models or publishes data analytics articles.</p>
+            </div>
+            <form class="newsletter-form" id="newsletter-form">
+              <input type="email" id="newsletter-email" class="form-input" placeholder="Enter your email address" required>
+              <button class="newsletter-btn" type="submit" id="newsletter-btn"><ion-icon name="notifications-outline"></ion-icon> Subscribe</button>
+            </form>
+            <div class="subscription-status-msg" id="subscription-msg"></div>
+          </div>
+        </section>
+
         <!-- Map section -->
         <section class="mapboxtitle" data-mapbox-title>
           <h3 class="h3 map-title">Location</h3>
@@ -1387,6 +1673,47 @@
           <figure>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5986.7249099660285!2d73.24696683164305!3d34.42128930842356!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38de17bf878d1177%3A0x182b25a42224b791!2sHazara%20University%20Mansehra!5e0!3m2!1sen!2s!4v1729511014579!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </figure>
+        </section>
+
+        <!-- Collaboration Proposal Board -->
+        <section class="collaboration-board-section">
+          <h3 class="h3 section-title">🤝 Innovation Collaboration Board</h3>
+          <p class="collab-subtitle">Submit a research or development proposal to connect directly with Qasim's network nodes.</p>
+          
+          <div class="collaboration-grid">
+            <div class="collab-form-card content-card">
+              <form id="collab-form" class="collab-form">
+                <input type="text" id="collab-project" class="form-input" placeholder="Project Name" required>
+                <input type="text" id="collab-role" class="form-input" placeholder="Role Needed (e.g. Mentor, Data Scientist)" required>
+                <textarea id="collab-description" class="form-input" placeholder="Outline your proposal / project description" required></textarea>
+                <button type="submit" class="form-btn" id="collab-submit-btn">Submit Idea Node</button>
+              </form>
+            </div>
+            
+            <div class="collab-ledger-card content-card">
+              <h4 class="h4 ledger-title"><ion-icon name="list-circle-outline"></ion-icon> Active Project Ledger</h4>
+              <div class="ledger-list" id="ledger-list">
+                <!-- Preset items showing active community vibe -->
+                <div class="ledger-item">
+                  <div class="ledger-header">
+                    <span class="ledger-project">KPK Crop Yield Forecasting</span>
+                    <span class="ledger-status pending">Pending Node Review</span>
+                  </div>
+                  <p class="ledger-desc">Model crop dynamics in Karak using historic irrigation sensor datasets.</p>
+                  <div class="ledger-meta">Role: Core ML Modeler // Proposed: Just now</div>
+                </div>
+                
+                <div class="ledger-item">
+                  <div class="ledger-header">
+                    <span class="ledger-project">OpenCV Speed Tracing</span>
+                    <span class="ledger-status approved">Approved & Active</span>
+                  </div>
+                  <p class="ledger-desc">Track local highway speeds in KPK using real-time surveillance cameras.</p>
+                  <div class="ledger-meta">Role: Computer Vision Advisor // Proposed: 2 days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
       </article>
@@ -1431,16 +1758,16 @@
   </div>
 
 
-  <!-- Animation CDNs (Three.js & tsParticles) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.12.0/tsparticles.bundle.min.js"></script>
+  <!-- Animation CDNs (Three.js & tsParticles) — defer so they don't block rendering -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.12.0/tsparticles.bundle.min.js"></script>
 
   <!-- EmailJS CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <!-- Scripts -->
-  <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/animations.js"></script>
+  <script defer src="./assets/js/script.js"></script>
+  <script defer src="./assets/js/animations.js"></script>
 
   <!-- Canvas Overlay for Custom Cursor Explosion particles -->
   <canvas id="cursor-explosion-canvas"></canvas>
@@ -1502,18 +1829,29 @@
     </div>
   </div>
 
+  <!-- Floating Achievement Notification Toast -->
+  <div class="achievement-toast" id="achievement-toast">
+    <div class="toast-icon">🏆</div>
+    <div class="toast-body">
+      <h5 class="toast-title">Achievement Unlocked!</h5>
+      <p class="toast-desc" id="achievement-toast-desc">Curious Explorer</p>
+    </div>
+  </div>
+
   <!-- Ionicons -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <!-- Service Worker Register Script -->
   <script>
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js')
           .then((reg) => console.log('Service Worker registered successfully:', reg.scope))
           .catch((err) => console.error('Service Worker registration failed:', err));
       });
+    } else if ('serviceWorker' in navigator && window.location.protocol === 'file:') {
+      console.log('Service Worker not registered: page opened via file://. Use http(s) or localhost for PWA support.');
     }
   </script>
 

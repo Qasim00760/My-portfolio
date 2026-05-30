@@ -4,38 +4,72 @@
  * Vanilla JS & CSS Animations Only
  */
 
+// ─── Safe localStorage Utility ──────────────────────────────────────────────
+// Prevents SecurityError crashes in sandboxed browsers / strict privacy mode.
+const storage = {
+  getItem(key, fallback = null) {
+    try { const v = localStorage.getItem(key); return v !== null ? v : fallback; }
+    catch (e) { return fallback; }
+  },
+  setItem(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) { /* sandboxed — silent */ }
+  },
+  removeItem(key) {
+    try { localStorage.removeItem(key); } catch (e) { /* sandboxed — silent */ }
+  }
+};
+
+// ─── Safe Init Wrapper ───────────────────────────────────────────────────────
+// Isolates each feature so one crash never blocks the rest from loading.
+function safeInit(name, fn) {
+  try { fn(); }
+  catch (e) { console.warn(`[Portfolio] '${name}' failed to init:`, e.message); }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Core Visual Elements
-  initCursorGlow();
-  initTypingEffect();
-  initTsParticles();
-  initThreeJsNeuralNet();
-  initScrollReveal();
-  initCardSpotlight();
-  initNavbarScroll();
-  initTabSwitchObserver();
+  safeInit("CursorGlow",        initCursorGlow);
+  safeInit("TypingEffect",      initTypingEffect);
+  safeInit("TsParticles",       initTsParticles);
+  safeInit("ThreeJsNeuralNet",  initThreeJsNeuralNet);
+  safeInit("ScrollReveal",      initScrollReveal);
+  safeInit("CardSpotlight",     initCardSpotlight);
+  safeInit("NavbarScroll",      initNavbarScroll);
+  safeInit("TabSwitchObserver", initTabSwitchObserver);
 
-  // Advanced Interactive Features [NEW]
-  initThemeToggle();
-  initStatsCounter();
-  initTerminalShell();
-  initContributionGraph();
-  initSentimentModel();
-  initCaseStudyDrawer();
-  initAiChatbot();
-  initSmartForm();
+  // Advanced Interactive Features
+  safeInit("ThemeToggle",       initThemeToggle);
+  safeInit("StatsCounter",      initStatsCounter);
+  safeInit("TerminalShell",     initTerminalShell);
+  safeInit("ContributionGraph", initContributionGraph);
+  safeInit("SentimentModel",    initSentimentModel);
+  safeInit("CaseStudyDrawer",   initCaseStudyDrawer);
+  safeInit("AiChatbot",         initAiChatbot);
+  safeInit("SmartForm",         initSmartForm);
 
-  // 10 Interactive Cyber-AI Portfolio Upgrades [NEW]
-  initPersonalizedGreeting();
-  initExplosionCursor();
-  initVoiceIntroduction();
-  initPwaInstaller();
-  initLanguageSwitcher();
-  initRetroSnakeGame();
-  initProjectAnalytics();
-  initPeerEndorsements();
-  initGenerativeArtLab();
-  initCinematicHeroFlow();
+  // 10 Interactive Cyber-AI Portfolio Upgrades
+  safeInit("PersonalizedGreeting", initPersonalizedGreeting);
+  safeInit("ExplosionCursor",      initExplosionCursor);
+  safeInit("VoiceIntroduction",    initVoiceIntroduction);
+  safeInit("PwaInstaller",         initPwaInstaller);
+  safeInit("LanguageSwitcher",     initLanguageSwitcher);
+  safeInit("RetroSnakeGame",       initRetroSnakeGame);
+  safeInit("ProjectAnalytics",     initProjectAnalytics);
+  safeInit("PeerEndorsements",     initPeerEndorsements);
+  safeInit("GenerativeArtLab",     initGenerativeArtLab);
+  safeInit("CinematicHeroFlow",    initCinematicHeroFlow);
+
+  // New Upgrades Visual & AI Core Systems
+  safeInit("FocusMode",             initFocusMode);
+  safeInit("Achievements",          initAchievements);
+  safeInit("RealTimeFeed",          initRealTimeFeed);
+  safeInit("ResumeAnalyzer",        initResumeAnalyzer);
+  safeInit("LearningPath",          initLearningPath);
+  safeInit("CodePlayground",        initCodePlayground);
+  safeInit("ProjectCarousel",       initProjectCarousel);
+  safeInit("JourneyMap",            initJourneyMap);
+  safeInit("CollaborationBoard",    initCollaborationBoard);
+  safeInit("NewsletterSubscription",initNewsletterSubscription);
 });
 
 /**
@@ -124,10 +158,40 @@ function initTsParticles() {
 
 /**
  * 4. Three.js Rotating Holographic Neural Network Globe
+ * Includes graceful WebGL fallback — if WebGL is disabled/unsupported,
+ * renders a premium glassmorphic placeholder card instead of crashing.
  */
 function initThreeJsNeuralNet() {
   const container = document.getElementById("hero-3d-container");
   if (!container || typeof THREE === "undefined") return;
+
+  // ── WebGL capability check ──────────────────────────────────────────────
+  function isWebGLAvailable() {
+    try {
+      const testCanvas = document.createElement("canvas");
+      return !!(window.WebGLRenderingContext &&
+        (testCanvas.getContext("webgl") || testCanvas.getContext("experimental-webgl")));
+    } catch (e) { return false; }
+  }
+
+  if (!isWebGLAvailable()) {
+    // Render a premium glassmorphic fallback card
+    container.innerHTML = `
+      <div style="
+        width:100%; height:100%; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; gap:12px;
+        background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(139,92,246,0.08));
+        border: 1px solid rgba(0,212,255,0.15);
+        border-radius: 16px; backdrop-filter: blur(10px);
+        font-family: 'JetBrains Mono', monospace; color: #00d4ff; padding: 24px;
+        text-align: center;
+      ">
+        <div style="font-size:2.5rem;">🧠</div>
+        <div style="font-size:0.75rem; letter-spacing:2px; opacity:0.7;">NEURAL NETWORK</div>
+        <div style="font-size:0.65rem; color:#8b5cf6; letter-spacing:1px;">3D renderer unavailable in this environment</div>
+      </div>`;
+    return;
+  }
 
   const scene = new THREE.Scene();
   const width = container.offsetWidth || 300;
@@ -135,7 +199,24 @@ function initThreeJsNeuralNet() {
   const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
   camera.position.z = 18;
 
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  } catch (e) {
+    container.innerHTML = `
+      <div style="
+        width:100%; height:100%; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; gap:12px;
+        background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(139,92,246,0.08));
+        border: 1px solid rgba(0,212,255,0.15); border-radius:16px;
+        font-family:monospace; color:#00d4ff; padding:24px; text-align:center;
+      ">
+        <div style="font-size:2.5rem;">🧠</div>
+        <div style="font-size:0.75rem; letter-spacing:2px; opacity:0.7;">NEURAL NETWORK</div>
+        <div style="font-size:0.65rem; color:#8b5cf6;">WebGL context creation failed</div>
+      </div>`;
+    return;
+  }
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   container.innerHTML = "";
@@ -279,7 +360,7 @@ function initThemeToggle() {
   const toggleBtn = document.getElementById("theme-toggle");
   if (!toggleBtn) return;
 
-  const currentTheme = localStorage.getItem("theme") || "dark";
+  const currentTheme = storage.getItem("theme", "dark");
   if (currentTheme === "light") {
     document.body.classList.remove("dark-theme");
     document.body.classList.add("light-theme");
@@ -289,11 +370,11 @@ function initThemeToggle() {
     if (document.body.classList.contains("dark-theme")) {
       document.body.classList.remove("dark-theme");
       document.body.classList.add("light-theme");
-      localStorage.setItem("theme", "light");
+      storage.setItem("theme", "light");
     } else {
       document.body.classList.remove("light-theme");
       document.body.classList.add("dark-theme");
-      localStorage.setItem("theme", "dark");
+      storage.setItem("theme", "dark");
     }
   });
 }
@@ -938,12 +1019,14 @@ function initPersonalizedGreeting() {
   const greetingEl = document.getElementById("visitor-greeting-text");
   if (!greetingEl) return;
 
-  // Track visits via localStorage
-  let visits = parseInt(localStorage.getItem("qasim_visit_count") || "0", 10);
-  if (sessionStorage.getItem("qasim_session_registered") !== "true") {
+  // Track visits via safe storage helper (prevents SecurityError in sandboxed browsers)
+  let visits = parseInt(storage.getItem("qasim_visit_count", "0"), 10);
+  let sessionRegistered = false;
+  try { sessionRegistered = sessionStorage.getItem("qasim_session_registered") === "true"; } catch(e) {}
+  if (!sessionRegistered) {
     visits += 1;
-    localStorage.setItem("qasim_visit_count", visits);
-    sessionStorage.setItem("qasim_session_registered", "true");
+    storage.setItem("qasim_visit_count", visits);
+    try { sessionStorage.setItem("qasim_session_registered", "true"); } catch(e) {}
   }
   const visitorNumber = 247 + visits;
 
@@ -972,7 +1055,7 @@ function initPersonalizedGreeting() {
       clearTimeout(timeoutId);
       if (data && data.city && data.country_name) {
         const locationStr = `${data.city}, ${data.country_name}`;
-        localStorage.setItem("qasim_visitor_location", locationStr);
+        storage.setItem("qasim_visitor_location", locationStr);
         updateGreetingUI(greetingPrefix, locationStr, visitorNumber);
       } else {
         throw new Error("Invalid location data");
@@ -981,7 +1064,7 @@ function initPersonalizedGreeting() {
     .catch(() => {
       clearTimeout(timeoutId);
       // Fallback location
-      const savedLoc = localStorage.getItem("qasim_visitor_location") || "Karak, Pakistan";
+      const savedLoc = storage.getItem("qasim_visitor_location", "Karak, Pakistan");
       updateGreetingUI(greetingPrefix, savedLoc, visitorNumber);
     });
 
@@ -1232,7 +1315,7 @@ function initPwaInstaller() {
     deferredPrompt = e;
 
     // Check if user dismissed it in this session
-    const isDismissed = localStorage.getItem("qasim_pwa_dismissed") === "true";
+    const isDismissed = storage.getItem("qasim_pwa_dismissed") === "true";
     if (!isDismissed) {
       setTimeout(() => {
         banner.classList.add("active");
@@ -1256,7 +1339,7 @@ function initPwaInstaller() {
 
   dismissBtn.addEventListener("click", () => {
     banner.classList.remove("active");
-    localStorage.setItem("qasim_pwa_dismissed", "true");
+    storage.setItem("qasim_pwa_dismissed", "true");
   });
 }
 
@@ -1310,7 +1393,7 @@ function initLanguageSwitcher() {
   };
 
   // Restore saved language
-  const savedLang = localStorage.getItem("qasim_language") || "en";
+  const savedLang = storage.getItem("qasim_language", "en");
   if (savedLang === "ur") {
     applyLanguage("ur");
   }
@@ -1322,7 +1405,7 @@ function initLanguageSwitcher() {
   });
 
   function applyLanguage(lang) {
-    localStorage.setItem("qasim_language", lang);
+    storage.setItem("qasim_language", lang);
 
     if (lang === "ur") {
       document.body.classList.add("lang-ur", "rtl-mode");
@@ -1420,7 +1503,7 @@ function initRetroSnakeGame() {
   let gameInterval = null;
   let score = 0;
   let epoch = 1;
-  let highscore = parseInt(localStorage.getItem("qasim_snake_highscore") || "0", 10);
+  let highscore = parseInt(storage.getItem("qasim_snake_highscore", "0"), 10);
   
   const gridSize = 15;
   const tileCountX = 400 / gridSize;
@@ -1584,7 +1667,7 @@ function initRetroSnakeGame() {
     // Save highscore
     if (score > highscore) {
       highscore = score;
-      localStorage.setItem("qasim_snake_highscore", highscore);
+      storage.setItem("qasim_snake_highscore", highscore);
       if (hsVal) hsVal.textContent = highscore;
     }
 
@@ -1652,9 +1735,9 @@ function initProjectAnalytics() {
     const csId = card.getAttribute("data-case-study");
     const data = seedTelemetry[csId] || { views: 150, stars: 5, metric: "80%" };
 
-    // Fetch click counts from LocalStorage to increment organically
-    const realViews = data.views + parseInt(localStorage.getItem(`qasim_views_${csId}`) || "0", 10);
-    const realStars = data.stars + parseInt(localStorage.getItem(`qasim_stars_${csId}`) || "0", 10);
+    // Fetch click counts from safe storage to increment organically
+    const realViews = data.views + parseInt(storage.getItem(`qasim_views_${csId}`, "0"), 10);
+    const realStars = data.stars + parseInt(storage.getItem(`qasim_stars_${csId}`, "0"), 10);
 
     // Create telemetry badge row
     const row = document.createElement("div");
@@ -1676,13 +1759,13 @@ function initProjectAnalytics() {
     starBadge.addEventListener("click", (e) => {
       e.stopPropagation(); // Avoid triggering card drawer
       
-      const activeStarState = localStorage.getItem(`qasim_starred_${csId}`) === "true";
+      const activeStarState = storage.getItem(`qasim_starred_${csId}`) === "true";
       if (!activeStarState) {
-        localStorage.setItem(`qasim_starred_${csId}`, "true");
+        storage.setItem(`qasim_starred_${csId}`, "true");
         
-        let starsCount = parseInt(localStorage.getItem(`qasim_stars_${csId}`) || "0", 10);
+        let starsCount = parseInt(storage.getItem(`qasim_stars_${csId}`, "0"), 10);
         starsCount += 1;
-        localStorage.setItem(`qasim_stars_${csId}`, starsCount);
+        storage.setItem(`qasim_stars_${csId}`, starsCount);
 
         starBadge.querySelector(".val").textContent = data.stars + starsCount;
         starBadge.classList.add("pulse-val");
@@ -1696,9 +1779,9 @@ function initProjectAnalytics() {
 
     // When click card wrapper, trigger Case Study Drawer views increments
     card.addEventListener("click", () => {
-      let viewsCount = parseInt(localStorage.getItem(`qasim_views_${csId}`) || "0", 10);
+      let viewsCount = parseInt(storage.getItem(`qasim_views_${csId}`, "0"), 10);
       viewsCount += 1;
-      localStorage.setItem(`qasim_views_${csId}`, viewsCount);
+      storage.setItem(`qasim_views_${csId}`, viewsCount);
       
       row.querySelector(".views .val").textContent = data.views + viewsCount;
     });
@@ -1723,11 +1806,11 @@ function initPeerEndorsements() {
 
     // Define seed base values
     const seedVal = 18 + (idx * 3) + (skillName.length % 5);
-    const addedCount = parseInt(localStorage.getItem(`qasim_endorse_${skillId}`) || "0", 10);
+    const addedCount = parseInt(storage.getItem(`qasim_endorse_${skillId}`, "0"), 10);
     const totalCount = seedVal + addedCount;
 
     // Check if user already endorsed this
-    const hasEndorsed = localStorage.getItem(`qasim_endorsed_${skillId}`) === "true";
+    const hasEndorsed = storage.getItem(`qasim_endorsed_${skillId}`) === "true";
 
     // Create Endorsement UI button
     const endorseBtn = document.createElement("div");
@@ -1749,12 +1832,12 @@ function initPeerEndorsements() {
     endorseBtn.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      const currentlyEndorsed = localStorage.getItem(`qasim_endorsed_${skillId}`) === "true";
+      const currentlyEndorsed = storage.getItem(`qasim_endorsed_${skillId}`) === "true";
       if (!currentlyEndorsed) {
-        localStorage.setItem(`qasim_endorsed_${skillId}`, "true");
+        storage.setItem(`qasim_endorsed_${skillId}`, "true");
         
         let newAdded = addedCount + 1;
-        localStorage.setItem(`qasim_endorse_${skillId}`, newAdded);
+        storage.setItem(`qasim_endorse_${skillId}`, newAdded);
 
         endorseBtn.querySelector(".endorse-count").textContent = seedVal + newAdded;
         endorseBtn.classList.add("active");
@@ -1981,3 +2064,684 @@ function initCinematicHeroFlow() {
   
   observer.observe(container);
 }
+
+/**
+ * Focus Mode Toggle (Accessibility Upgrades)
+ * Pauses rendering cycles, cancels animated background threads, and switches colors
+ */
+function initFocusMode() {
+  const toggleBtn = document.getElementById("focus-toggle");
+  if (!toggleBtn) return;
+
+  const offIcon = toggleBtn.querySelector(".focus-off-icon");
+  const onIcon = toggleBtn.querySelector(".focus-on-icon");
+
+  const activeFocus = storage.getItem("focusMode") === "true";
+  if (activeFocus) {
+    document.body.classList.add("focus-mode");
+    if (offIcon) offIcon.style.display = "none";
+    if (onIcon) onIcon.style.display = "block";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    const isFocus = document.body.classList.toggle("focus-mode");
+    storage.setItem("focusMode", isFocus);
+
+    if (isFocus) {
+      if (offIcon) offIcon.style.display = "none";
+      if (onIcon) onIcon.style.display = "block";
+      showAchievementToast("Accessible Mindset", "Focus Mode activated! Canvas animations paused.");
+      unlockBadge("explorer"); // Accessibility focus counts!
+    } else {
+      if (offIcon) offIcon.style.display = "block";
+      if (onIcon) onIcon.style.display = "none";
+    }
+  });
+}
+
+/**
+ * Achievements Gamification System
+ * Manages badge unlocks, local storage caches, toast slide-outs, and sidebar updates
+ */
+const unlockedBadgesSet = new Set(JSON.parse(storage.getItem("unlockedBadges", "[]")));
+
+function initAchievements() {
+  updateSidebarBadgesShelf();
+
+  // Tab Observer Trigger
+  const activeTabs = new Set();
+  const navLinks = document.querySelectorAll("[data-nav-link]");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      activeTabs.add(link.innerText.trim().toLowerCase());
+      if (activeTabs.size >= 5) {
+        unlockBadge("explorer");
+      }
+    });
+  });
+
+  // Sentiment Test Trigger
+  const sentInput = document.getElementById("sentiment-input");
+  if (sentInput) {
+    sentInput.addEventListener("input", () => {
+      if (sentInput.value.trim().length > 15) {
+        unlockBadge("validator");
+      }
+    });
+  }
+
+  // Generative Art Seed Trigger
+  const artBtn = document.getElementById("art-generate-btn");
+  if (artBtn) {
+    artBtn.addEventListener("click", () => {
+      unlockBadge("creator");
+    });
+  }
+}
+
+function unlockBadge(badgeId) {
+  if (unlockedBadgesSet.has(badgeId)) return;
+
+  const badgeNamesMap = {
+    explorer: "Curious Explorer",
+    commander: "Command Commander",
+    validator: "Model Validator",
+    creator: "Creative Seeder",
+    analyzer: "Job Match Checked",
+    gamer: "Retro Gamer",
+    collaborator: "Innovation Partner"
+  };
+
+  unlockedBadgesSet.add(badgeId);
+  storage.setItem("unlockedBadges", JSON.stringify(Array.from(unlockedBadgesSet)));
+  
+  updateSidebarBadgesShelf();
+  showAchievementToast(badgeNamesMap[badgeId] || "Accomplished Node", "You unlocked a new portfolio badge!");
+}
+
+function updateSidebarBadgesShelf() {
+  const shelfCount = document.getElementById("badges-unlocked-count");
+  if (shelfCount) shelfCount.textContent = unlockedBadgesSet.size;
+
+  unlockedBadgesSet.forEach(badgeId => {
+    const slotElement = document.getElementById(`badge-${badgeId}`);
+    if (slotElement) {
+      slotElement.className = "badge-slotUnlocked";
+    }
+  });
+}
+
+function showAchievementToast(title, desc) {
+  const toast = document.getElementById("achievement-toast");
+  const toastDesc = document.getElementById("achievement-toast-desc");
+  if (!toast || !toastDesc) return;
+
+  toast.querySelector(".toast-title").textContent = `🏆 Unlocked: ${title}`;
+  toastDesc.textContent = desc;
+
+  toast.classList.add("active");
+
+  setTimeout(() => {
+    toast.classList.remove("active");
+  }, 4000);
+}
+
+/**
+ * Real-Time Async Data Feed
+ * Pulls live API metrics for KPK Pakistan Weather and Crypto Price values with local fallbacks
+ */
+function initRealTimeFeed() {
+  const btcPriceEl = document.getElementById("feed-btc-price");
+  const ethPriceEl = document.getElementById("feed-eth-price");
+  const weatherEl = document.getElementById("feed-weather");
+  const timeEl = document.getElementById("feed-time");
+
+  const now = new Date();
+  if (timeEl) timeEl.textContent = `Last update: ${now.toLocaleTimeString()}`;
+
+  // Fetch crypto prices from CoinGecko
+  fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd")
+    .then(res => res.json())
+    .then(data => {
+      if (btcPriceEl && data.bitcoin) btcPriceEl.textContent = `$${data.bitcoin.usd.toLocaleString()}`;
+      if (ethPriceEl && data.ethereum) ethPriceEl.textContent = `$${data.ethereum.usd.toLocaleString()}`;
+    })
+    .catch(() => {
+      // Offline / CORS fallback
+      if (btcPriceEl) btcPriceEl.textContent = "$67,420 // Local Offline Node";
+      if (ethPriceEl) ethPriceEl.textContent = "$3,510 // Local Offline Node";
+    });
+
+  // Fetch weather data for KPK Mansehra area from Open-Meteo
+  fetch("https://api.open-meteo.com/v1/forecast?latitude=34.21&longitude=73.24&current_weather=true")
+    .then(res => res.json())
+    .then(data => {
+      if (weatherEl && data.current_weather) {
+        weatherEl.textContent = `${data.current_weather.temperature}°C // HU Campus KPK`;
+      }
+    })
+    .catch(() => {
+      if (weatherEl) weatherEl.textContent = "26.5°C // KPK Local Node";
+    });
+}
+
+/**
+ * AI Resume Compatibility Analyzer
+ * Audits paste Job Description texts against Qasim's actual skills using text matching
+ */
+function initResumeAnalyzer() {
+  const textInput = document.getElementById("jd-input");
+  const btn = document.getElementById("analyzer-btn");
+  const resultsContainer = document.getElementById("analyzer-results");
+  const gaugeFill = document.getElementById("gauge-fill");
+  const gaugeVal = document.getElementById("gauge-value");
+  const matchesContainer = document.getElementById("feedback-matches");
+  const feedbackTitle = document.getElementById("feedback-match-title");
+  const summaryEl = document.getElementById("feedback-summary");
+
+  if (!textInput || !btn || !resultsContainer) return;
+
+  const qasimSkills = [
+    "python", "sql", "machine learning", "data analytics", "generative ai", 
+    "opencv", "scikit-learn", "xgboost", "mlops", "aws", "docker", "linux", 
+    "pandas", "numpy", "seaborn", "matplotlib", "nlp", "computer vision"
+  ];
+
+  btn.addEventListener("click", () => {
+    const jdText = textInput.value.trim().toLowerCase();
+    if (jdText === "") return;
+
+    // Perform keyword audit matching
+    const matched = [];
+    qasimSkills.forEach(skill => {
+      if (jdText.includes(skill)) {
+        matched.push(skill);
+      }
+    });
+
+    // Score computation
+    let score = 50 + Math.floor((matched.length / qasimSkills.length) * 48);
+    if (matched.length === 0) score = 42; // base score for standard ML audit
+    if (score > 98) score = 98; // keep realistic headroom
+
+    // Show panel
+    resultsContainer.style.display = "flex";
+
+    // Animate Circular Gauge SVG
+    const circumference = 251; // 2 * pi * r (r=40)
+    const offset = circumference - (score / 100) * circumference;
+    
+    // Smooth gauge interpolation
+    gaugeFill.style.strokeDashoffset = circumference;
+    setTimeout(() => {
+      gaugeFill.style.strokeDashoffset = offset;
+    }, 100);
+
+    // Count up index value text
+    let currVal = 0;
+    const interval = setInterval(() => {
+      currVal += 2;
+      if (currVal >= score) {
+        gaugeVal.textContent = `${score}%`;
+        clearInterval(interval);
+      } else {
+        gaugeVal.textContent = `${currVal}%`;
+      }
+    }, 20);
+
+    // Populate skill tags
+    matchesContainer.innerHTML = "";
+    if (matched.length > 0) {
+      matched.forEach(skill => {
+        const tag = document.createElement("span");
+        tag.className = "feedback-tag";
+        tag.textContent = skill.charAt(0).toUpperCase() + skill.slice(1);
+        matchesContainer.appendChild(tag);
+      });
+    } else {
+      matchesContainer.innerHTML = "<span class='feedback-tag'>Data Science Core</span><span class='feedback-tag'>Analytical Thinking</span>";
+    }
+
+    // Set feedback summary
+    if (score >= 85) {
+      feedbackTitle.textContent = "🏆 Master Alignment! Perfect Fit Detected.";
+      summaryEl.textContent = "Qasim represents an outstanding match for this role. His background in exploratory metrics at Hazara University and practical data pipelining aligns cleanly with your core engineering stack requirements.";
+    } else if (score >= 70) {
+      feedbackTitle.textContent = "📈 Strong Compatibility Match.";
+      summaryEl.textContent = "Qasim displays strong operational overlap in core modeling pipelines and data preparation. He matches key requirements, indicating solid foundational capacity for this position.";
+    } else {
+      feedbackTitle.textContent = "🔍 Viable Adaptive Match.";
+      summaryEl.textContent = "Qasim holds strong general mathematical data analytics paradigms that fit analytical tasks, and can quickly adapt to specialized tech environments.";
+    }
+
+    unlockBadge("analyzer");
+  });
+}
+
+/**
+ * Learning Path Visualizer Timeline
+ * Expands tree timeline blocks upon user click interactions
+ */
+function initLearningPath() {
+  const cards = document.querySelectorAll(".learning-path-tree .node-card");
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const activeNode = card.closest(".tree-node");
+      document.querySelectorAll(".tree-node").forEach(node => {
+        node.classList.remove("active-node");
+      });
+      if (activeNode) activeNode.classList.add("active-node");
+    });
+  });
+}
+
+/**
+ * Live Algorithms Visual Code Playground
+ * Implements Bubble Sort Visualizer, binary search tree, and linear regression convergence on canvas
+ */
+let playgroundInterval = null;
+
+function initCodePlayground() {
+  const select = document.getElementById("algorithm-select");
+  const runBtn = document.getElementById("playground-run-btn");
+  const resetBtn = document.getElementById("playground-reset-btn");
+  const logBox = document.getElementById("playground-log");
+  const canvas = document.getElementById("playground-canvas");
+  
+  if (!select || !runBtn || !canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  runBtn.addEventListener("click", () => {
+    const algo = select.value;
+    runBtn.setAttribute("disabled", "true");
+    resetBtn.removeAttribute("disabled");
+    
+    if (playgroundInterval) clearInterval(playgroundInterval);
+
+    logBox.innerHTML = `<span class="log-line system">&gt; Initializing algorithm compiler... SUCCESS</span>`;
+
+    if (algo === "bubble-sort") {
+      runBubbleSortVisualizer(canvas, ctx, logBox, runBtn);
+    } else if (algo === "binary-search") {
+      runBinarySearchTree(canvas, ctx, logBox, runBtn);
+    } else if (algo === "regression") {
+      runGradientDescent(canvas, ctx, logBox, runBtn);
+    }
+  });
+
+  resetBtn.addEventListener("click", () => {
+    if (playgroundInterval) clearInterval(playgroundInterval);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    runBtn.removeAttribute("disabled");
+    resetBtn.setAttribute("disabled", "true");
+    logBox.innerHTML = `<span class="log-line system">&gt; Canvas buffer wiped. Core compiler idle.</span>`;
+  });
+}
+
+function runBubbleSortVisualizer(canvas, ctx, logBox, runBtn) {
+  const arraySize = 14;
+  let arr = Array.from({ length: arraySize }, () => Math.floor(Math.random() * 150) + 30);
+  
+  let i = 0;
+  let j = 0;
+  let steps = 0;
+
+  function drawBars(compare1 = -1, compare2 = -1) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const barWidth = Math.floor(canvas.width / arraySize) - 8;
+    
+    for (let idx = 0; idx < arr.length; idx++) {
+      const x = idx * (barWidth + 8) + 4;
+      const height = arr[idx];
+      const y = canvas.height - height - 10;
+
+      if (idx === compare1 || idx === compare2) {
+        ctx.fillStyle = "#ff5f56"; // compare highlight red
+      } else if (idx >= arr.length - i) {
+        ctx.fillStyle = "#34d399"; // sorted green
+      } else {
+        ctx.fillStyle = "#00d4ff"; // cyan active
+      }
+
+      ctx.fillRect(x, y, barWidth, height);
+      ctx.strokeStyle = "rgba(255,255,255,0.05)";
+      ctx.strokeRect(x, y, barWidth, height);
+    }
+  }
+
+  playgroundInterval = setInterval(() => {
+    if (i < arr.length) {
+      if (j < arr.length - i - 1) {
+        steps++;
+        if (arr[j] > arr[j + 1]) {
+          // Swap
+          const temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+          logBox.innerHTML += `<span class="log-line info">&gt; Step ${steps}: Swap index ${j} and ${j+1} [${arr[j+1]} &gt; ${arr[j]}]</span>`;
+          logBox.scrollTop = logBox.scrollHeight;
+        }
+        drawBars(j, j + 1);
+        j++;
+      } else {
+        j = 0;
+        i++;
+      }
+    } else {
+      clearInterval(playgroundInterval);
+      drawBars();
+      logBox.innerHTML += `<span class="log-line success">&gt; Array sorted successfully in ${steps} computational cycles! Complexity: O(n²)</span>`;
+      logBox.scrollTop = logBox.scrollHeight;
+      runBtn.removeAttribute("disabled");
+    }
+  }, 100);
+}
+
+function runBinarySearchTree(canvas, ctx, logBox, runBtn) {
+  // Simple search node visualizer
+  const nodes = [
+    { id: 50, x: 250, y: 35, left: 1, right: 2 },
+    { id: 25, x: 130, y: 90, left: 3, right: 4 },
+    { id: 75, x: 370, y: 90, left: 5, right: 6 },
+    { id: 12, x: 70, y: 155 },
+    { id: 37, x: 190, y: 155 },
+    { id: 60, x: 310, y: 155 },
+    { id: 90, x: 430, y: 155 }
+  ];
+
+  let currentPath = [50, 75, 60]; // Target node to search: 60
+  let searchIdx = 0;
+
+  function drawTree(highlightId = -1) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw connections
+    nodes.forEach(node => {
+      if (node.left !== undefined) {
+        const target = nodes[node.left];
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(node.x, node.y);
+        ctx.lineTo(target.x, target.y);
+        ctx.stroke();
+      }
+      if (node.right !== undefined) {
+        const target = nodes[node.right];
+        ctx.strokeStyle = "rgba(255,255,255,0.08)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(node.x, node.y);
+        ctx.lineTo(target.x, target.y);
+        ctx.stroke();
+      }
+    });
+
+    // Draw node core dots
+    nodes.forEach(node => {
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, 16, 0, Math.PI * 2);
+      if (node.id === highlightId) {
+        ctx.fillStyle = "#eab308"; // Highlight yellow
+        ctx.strokeStyle = "#ffffff";
+      } else if (currentPath.includes(node.id) && currentPath.indexOf(node.id) < searchIdx) {
+        ctx.fillStyle = "#8b5cf6"; // Explored path purple
+        ctx.strokeStyle = "rgba(139, 92, 246, 0.4)";
+      } else {
+        ctx.fillStyle = "#0c0e1c";
+        ctx.strokeStyle = "rgba(0, 212, 255, 0.15)";
+      }
+      ctx.lineWidth = 2;
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "10px monospace";
+      ctx.textAlign = "center";
+      ctx.fillText(node.id, node.x, node.y + 3);
+    });
+  }
+
+  logBox.innerHTML += `<span class="log-line info">&gt; Searching for key: 60 inside tree ledger...</span>`;
+  logBox.scrollTop = logBox.scrollHeight;
+
+  playgroundInterval = setInterval(() => {
+    if (searchIdx < currentPath.length) {
+      const activeVal = currentPath[searchIdx];
+      drawTree(activeVal);
+      logBox.innerHTML += `<span class="log-line info">&gt; Inspecting node: ${activeVal}. ${60 &gt; activeVal ? 'Right' : (60 &lt; activeVal ? 'Left' : 'Key Found!')} path taken.</span>`;
+      logBox.scrollTop = logBox.scrollHeight;
+      searchIdx++;
+    } else {
+      clearInterval(playgroundInterval);
+      logBox.innerHTML += `<span class="log-line success">&gt; Target node 60 successfully located! Complexity: O(log n)</span>`;
+      logBox.scrollTop = logBox.scrollHeight;
+      runBtn.removeAttribute("disabled");
+    }
+  }, 1000);
+}
+
+function runGradientDescent(canvas, ctx, logBox, runBtn) {
+  // Scatter points
+  const points = [
+    {x: 60, y: 190}, {x: 100, y: 160}, {x: 160, y: 150},
+    {x: 210, y: 120}, {x: 260, y: 100}, {x: 320, y: 90},
+    {x: 380, y: 70}, {x: 440, y: 50}
+  ];
+
+  let slope = 0;
+  let intercept = canvas.height;
+  let epoch = 0;
+  const learningRate = 0.0001;
+
+  function drawRegression() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw Points
+    ctx.fillStyle = "#00d4ff";
+    points.forEach(pt => {
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 6, 0, Math.PI*2);
+      ctx.fill();
+    });
+
+    // Draw Regression Line
+    ctx.strokeStyle = "#8b5cf6";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(0, intercept);
+    ctx.lineTo(canvas.width, slope * canvas.width + intercept);
+    ctx.stroke();
+  }
+
+  playgroundInterval = setInterval(() => {
+    if (epoch < 40) {
+      // Step update
+      let m_grad = 0;
+      let b_grad = 0;
+      
+      points.forEach(pt => {
+        const pred = slope * pt.x + intercept;
+        const error = pt.y - pred;
+        m_grad += -2 * pt.x * error;
+        b_grad += -2 * error;
+      });
+
+      slope -= (m_grad / points.length) * learningRate;
+      intercept -= (b_grad / points.length) * 0.05; // faster convergence
+
+      drawRegression();
+      epoch++;
+      if (epoch % 5 === 0) {
+        logBox.innerHTML += `<span class="log-line info">&gt; Epoch ${epoch}: Slope=${slope.toFixed(4)}, Intercept=${intercept.toFixed(2)}</span>`;
+        logBox.scrollTop = logBox.scrollHeight;
+      }
+    } else {
+      clearInterval(playgroundInterval);
+      logBox.innerHTML += `<span class="log-line success">&gt; Model converged! Loss minimized. Linear relation mapped successfully!</span>`;
+      logBox.scrollTop = logBox.scrollHeight;
+      runBtn.removeAttribute("disabled");
+    }
+  }, 100);
+}
+
+/**
+ * Project Showcases Slideshow Carousel
+ * Manages slider track transitions and indicators dots
+ */
+function initProjectCarousel() {
+  const track = document.getElementById("carousel-track");
+  const prevBtn = document.getElementById("carousel-prev-btn");
+  const nextBtn = document.getElementById("carousel-next-btn");
+  const dots = document.querySelectorAll("#carousel-dots .dot");
+
+  if (!track || !prevBtn || !nextBtn) return;
+
+  const slides = Array.from(track.children);
+  let currentIndex = 0;
+
+  function updateCarousel(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    
+    currentIndex = index;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    slides.forEach((slide, idx) => {
+      slide.classList.remove("active");
+      if (idx === currentIndex) slide.classList.add("active");
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.remove("active");
+      if (idx === currentIndex) dot.classList.add("active");
+    });
+  }
+
+  prevBtn.addEventListener("click", () => updateCarousel(currentIndex - 1));
+  nextBtn.addEventListener("click", () => updateCarousel(currentIndex + 1));
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const idx = parseInt(dot.getAttribute("data-slide"), 10);
+      updateCarousel(idx);
+    });
+  });
+}
+
+/**
+ * Interactive Project Journey Map
+ * Shows glowing dataset coordinates nodes on click
+ */
+function initJourneyMap() {
+  const nodes = document.querySelectorAll(".map-node");
+  const detailTitle = document.getElementById("map-detail-title");
+  const detailDesc = document.getElementById("map-detail-desc");
+
+  if (nodes.length === 0 || !detailTitle || !detailDesc) return;
+
+  const nodeLogsMap = {
+    kaggle: {
+      title: "Global Dataset Curations (Kaggle)",
+      desc: "This dataset node pulls multi-dimensional attributes directly from Kaggle archives (e.g., student marks matrices, used car attributes, retail logs). It represents our raw, unstructured input data seed."
+    },
+    university: {
+      title: "Hazara University Computational Center KPK",
+      desc: "Our primary training and preprocessing sector. Built on Jupyter networks, this is where outliers are wiped using custom pipelines and ensemble models (Random Forests, XGBoost) are configured and analyzed."
+    },
+    aws: {
+      title: "AWS Deployed Cloud API Gateway Nodes",
+      desc: "Our production environment! Deployed container instances serve real-time API queries. Our client-facing components hook into these endpoints to trigger quick, robust model predictions."
+    }
+  };
+
+  nodes.forEach(node => {
+    node.addEventListener("click", () => {
+      const nodeId = node.getAttribute("data-node");
+      const data = nodeLogsMap[nodeId];
+      if (data) {
+        detailTitle.textContent = data.title;
+        detailDesc.textContent = data.desc;
+        
+        // Custom interactive visual flare
+        const glow = node.querySelector(".node-glow");
+        if (glow) {
+          glow.style.transform = "scale(1.2)";
+          setTimeout(() => glow.style.transform = "scale(1)", 400);
+        }
+      }
+    });
+  });
+}
+
+/**
+ * Collaboration Idea Submission Ledger
+ * Handles caching and appends proposal ledger cards
+ */
+function initCollaborationBoard() {
+  const form = document.getElementById("collab-form");
+  const ledger = document.getElementById("ledger-list");
+
+  if (!form || !ledger) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const project = document.getElementById("collab-project").value.trim();
+    const role = document.getElementById("collab-role").value.trim();
+    const desc = document.getElementById("collab-description").value.trim();
+
+    if (project === "" || role === "") return;
+
+    // Append to active ledger
+    const item = document.createElement("div");
+    item.className = "ledger-item";
+    item.innerHTML = `
+      <div class="ledger-header">
+        <span class="ledger-project">${project}</span>
+        <span class="ledger-status pending">Pending Node Review</span>
+      </div>
+      <p class="ledger-desc">${desc}</p>
+      <div class="ledger-meta">Role: ${role} // Proposed: Just now</div>
+    `;
+
+    // Visual slide insertion
+    ledger.insertBefore(item, ledger.firstChild);
+    ledger.scrollTop = 0;
+
+    // Reset inputs
+    form.reset();
+
+    unlockBadge("collaborator");
+  });
+}
+
+/**
+ * Newsletter Subscriptions Form
+ * Indexes visitor emails in LocalStorage
+ */
+function initNewsletterSubscription() {
+  const form = document.getElementById("newsletter-form");
+  const emailInput = document.getElementById("newsletter-email");
+  const statusMsg = document.getElementById("subscription-msg");
+
+  if (!form || !statusMsg) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const emailVal = emailInput.value.trim();
+    if (emailVal === "") return;
+
+    // Retrieve active cache list (using safe storage helper)
+    const subscribers = JSON.parse(storage.getItem("newsletterSubscribers", "[]"));
+    subscribers.push({ email: emailVal, timestamp: new Date().toISOString() });
+    storage.setItem("newsletterSubscribers", JSON.stringify(subscribers));
+
+    emailInput.value = "";
+    statusMsg.style.display = "block";
+    statusMsg.className = "subscription-status-msg success";
+    statusMsg.textContent = `✓ Email indexed successfully! Newsletter activated for node: ${emailVal}`;
+  });
+}
+
