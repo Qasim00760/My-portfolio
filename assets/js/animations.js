@@ -437,7 +437,7 @@ function initTerminalShell() {
   const qasimCS = {
     whoami: "Muhammad Qasim - Data Scientist & AI Engineer currently based in karak, KPK, Pakistan.<br>Academic: BS CS progress node at Hazara University.",
     skills: "CORE MACHINE LEARNING SKILLS:<br>➔ Data Analytics: 80%<br>➔ Machine Learning (Scikit-Learn/XGBoost): 83%<br>➔ AI Agents & Task Automation: 70%<br>➔ Generative AI & MLOps (Docker/AWS): 60%<br>➔ Computer Vision (OpenCV): 55%",
-    projects: "ACTIVE PORTFOLIO DIRECTORY:<br>1. student marks Analysis [Data Analytics]<br>2. Cricket Score Analysis [Data Analytics]<br>3. Exploratory Data Analysis [Data Analytics]<br>4. Car Price Prediction [Machine Learning]<br>5. ML TBM Penetration Predictor [Machine Learning]<br>6. Attrition Prediction [ML Classification]<br>7. Emergency Room Performance [Analytics]<br>8. Social Media Engagement [Deep Learning]<br>9. OpenCV Document Scanner [Computer Vision]<br>10. NexaVerse LLM [Generative AI]<br>Type: 'story [id]' in portfolio drawer to read details.",
+    projects: "ACTIVE PORTFOLIO DIRECTORY:<br>1. student marks Analysis [Data Analytics]<br>2. Cricket Score Analysis [Data Analytics]<br>3. Exploratory Data Analysis [Data Analytics]<br>4. Car Price Prediction [Machine Learning]<br>5. ML TBM Penetration Predictor [Machine Learning]<br>6. Attrition Prediction [ML Classification]<br>7. Emergency Room Performance [Analytics]<br>8. Social Media Engagement [Deep Learning]<br>9. OpenCV Document Scanner [Computer Vision]<br>10. NexaVerse LLM [Generative AI]<br>11. Parking Space Occupancy Detector [Computer Vision / YOLOv8]<br>Type: 'story [id]' in portfolio drawer to read details.",
     contact: "COMMUNICATION NODE LOG:<br>➔ Email: qasimktk160@gmail.com<br>➔ Phone: +923305350857<br>➔ Location: karak, KPK, Pakistan.",
     github: "Git system check: Active. Access repository: <a href='https://github.com/Qasim00760' target='_blank' style='color:#00d4ff;text-decoration:underline;'>github.com/Qasim00760</a>",
     kaggle: "Kaggle rank check: Expert. Access notebooks: <a href='https://www.kaggle.com/qasimktkktk' target='_blank' style='color:#00d4ff;text-decoration:underline;'>kaggle.com/qasimktkktk</a>",
@@ -692,6 +692,15 @@ function initCaseStudyDrawer() {
       approach: "Built a Retrieval-Augmented Generation (RAG) pipeline using LangChain, fine-tuned Llama indices, and integrated a vector database to supply enterprise context.",
       result: "Halved system hallucination rates, delivering high-fidelity, context-aware answers to user queries.",
       repo: "https://github.com/Qasim00760/NexaVerse"
+    },
+    "parking-detector": {
+      title: "Parking Space Occupancy Detector",
+      category: "computer vision",
+      problem: "Manual parking monitoring is inefficient, error-prone, and scales poorly across large lots, leading to wasted time and congestion.",
+      approach: "Built a Smart AI-Based Parking Management System using YOLOv8 for real-time vehicle detection, combined with OpenCV for spatial bounding box analysis. Each parking space is classified as Free, Partially Occupied, or Occupied. Deployed as an interactive Streamlit web application.",
+      result: "Achieved accurate real-time detection of parking space status across all three categories. The live Streamlit app allows users to upload parking lot images or use a webcam feed to instantly visualize occupancy, reducing manual monitoring overhead.",
+      repo: "https://github.com/Qasim00760/Parking-Space-Occupancy-Detector",
+      demo: "https://parking-space-occupancy-detector-4xb2wcyiexrjjahqsaxz46.streamlit.app/"
     }
   };
 
@@ -730,6 +739,9 @@ function initCaseStudyDrawer() {
           <a href="${csData.repo}" target="_blank" class="drawer-btn primary">
             <ion-icon name="logo-github"></ion-icon> Inspect Repository
           </a>
+          ${csData.demo ? `<a href="${csData.demo}" target="_blank" class="drawer-btn secondary">
+            <ion-icon name="open-outline"></ion-icon> Live Demo
+          </a>` : ''}
         </div>
       `;
 
@@ -820,7 +832,7 @@ function initAiChatbot() {
     const q = query.toLowerCase();
     
     if (q.includes("project") || q.includes("work")) {
-      return "Qasim has engineered 10 major data science projects including:<br>➔ **NexaVerse LLM**: RAG-enhanced vector chatbot.<br>➔ **Computer Vision Scanner**: Real-time OpenCV warp corrector.<br>➔ **XGBoost Attrition Classifier**: 84% accurate churn predictor.<br>➔ **TBM Penetration Predictor**: Random Forest geological model.";
+      return "Qasim has engineered 11 major data science projects including:<br>➔ **NexaVerse LLM**: RAG-enhanced vector chatbot.<br>➔ **Parking Space Occupancy Detector**: YOLOv8 + OpenCV real-time parking AI.<br>➔ **Computer Vision Scanner**: Real-time OpenCV warp corrector.<br>➔ **XGBoost Attrition Classifier**: 84% accurate churn predictor.<br>➔ **TBM Penetration Predictor**: Random Forest geological model.";
     }
     if (q.includes("skill") || q.includes("tech") || q.includes("language")) {
       return "Technical stack components include:<br>➔ **Languages**: Python, SQL, Linux scripting.<br>➔ **Libraries**: Pandas, NumPy, Scikit-Learn, OpenCV, LangChain.<br>➔ **Operations**: Docker, Git pipelines, MLOps, AWS cloud platforms.";
@@ -1728,7 +1740,8 @@ function initProjectAnalytics() {
     "hospital-emergency": { views: 380, stars: 14, metric: "82%" },
     "social-media": { views: 820, stars: 42, metric: "86%" },
     "document-scanner": { views: 930, stars: 56, metric: "11ms" },
-    "nexaverse": { views: 1250, stars: 84, metric: "24ms" }
+    "nexaverse": { views: 1250, stars: 84, metric: "24ms" },
+    "parking-detector": { views: 720, stars: 38, metric: "98%" }
   };
 
   projectCards.forEach(card => {
