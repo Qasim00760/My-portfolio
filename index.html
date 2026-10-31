@@ -1,1966 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Qasim - Portfolio</title>
+  <title>Muhammad Qasim - Full Stack AI Developer</title>
+  <meta name="description" content="Muhammad Qasim - Full Stack AI Developer from Karak, Pakistan. Data analytics, machine learning, computer vision, generative AI, AI agents and automation projects.">
 
   <!-- PWA Manifest & Meta -->
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#00d4ff">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#F4F5F7">
   <link rel="apple-touch-icon" href="./assets/images/Qasim.Png">
+  <link rel="icon" href="./assets/images/Qasim.Png" type="image/png">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="./assets/images/Qasim.Png" type="image/x-icon">
-
-  <!-- Preload critical CSS -->
-  <link rel="preload" href="./assets/css/style.css" as="style">
-  <link rel="preload" href="./assets/js/script.js" as="script">
-  <link rel="preload" href="./assets/js/animations.js" as="script">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css?v=2">
-
-  <!-- Google Fonts: Inter (Body) & Space Grotesk (Futuristic headings) & JetBrains Mono (Tech styling) & Noto Nastaliq Urdu (Urdu translations) -->
+  <!-- Fonts: Space Grotesk (headings), Inter (body), JetBrains Mono (labels), Noto Nastaliq Urdu (Urdu) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/style.css?v=5">
 </head>
 
-<body class="dark-theme">
+<body>
 
-  <!-- Ambient Glow Effects -->
-  <div class="glow-orb glow-1"></div>
-  <div class="glow-orb glow-2"></div>
+  <!-- HEADER -->
+  <header class="header" data-header>
+    <div class="container header-inner">
+      <a href="#top" class="logo">Qasim<span>.</span></a>
 
-  <!-- Global Top Right Controls -->
-  <div class="top-controls-container">
-    <button class="lang-toggle-btn" id="lang-toggle" title="Switch Language (Urdu / English)">
-      <span class="lang-text">اردو</span>
-    </button>
-    <button class="focus-toggle-btn" id="focus-toggle" title="Toggle Focus Mode (Accessibility)">
-      <ion-icon name="eye-off-outline" class="focus-off-icon"></ion-icon>
-      <ion-icon name="eye-outline" class="focus-on-icon" style="display: none;"></ion-icon>
-    </button>
-    <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme Modes">
-      <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
-      <ion-icon name="sunny-outline" class="sun-icon"></ion-icon>
-    </button>
-  </div>
-
-  <main>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-        <figure class="avatar-box">
-          <img src="./assets/images/Qasim.Png" alt="Muhammad Qasim" width="80">
-          <div class="avatar-glow"></div>
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Muhammad Qasim">Muhammad Qasim</h1>
-          <p class="title">Data Scientist/Ai Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-      </div>
-
-      <div class="sidebar-info_more">
-        <div class="separator"></div>
-
-        <!-- Visitor greeting capsule -->
-        <div class="visitor-capsule">
-          <span class="visitor-pulse"></span>
-          <p class="visitor-text" id="visitor-greeting-text">System booting...</p>
-        </div>
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-              <a href="mailto:qasimktk160@gmail.com" class="contact-link">qasimktk160@gmail.com</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-              <a href="tel:+923305350857" class="contact-link">+923305350857</a>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-              <time datetime="2006-01-01">January 01, 2006</time>
-            </div>
-          </li>
-
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-              <address>karak, KPK, Pakistan.</address>
-            </div>
-          </li>
-        </ul>
-
-        <div class="separator"></div>
-
-        <!-- Voice Intro Deck -->
-        <div class="voice-intro-deck">
-          <button class="voice-btn" id="voice-intro-btn" title="Listen to Voice Introduction">
-            <ion-icon name="volume-high-outline" class="voice-icon" id="voice-btn-icon"></ion-icon>
-            <span class="voice-btn-text" id="voice-btn-label">Voice Introduction</span>
-          </button>
-          <div class="voice-eq" id="voice-eq-bars">
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-            <span class="eq-bar"></span>
-          </div>
-        </div>
-
-        <div class="separator"></div>
-
-        <!-- Gamified Badges Shelf -->
-        <div class="badges-shelf-container">
-          <p class="badges-shelf-title"><ion-icon name="trophy-outline"></ion-icon> Achievements (<span id="badges-unlocked-count">0</span>/7)</p>
-          <div class="badges-shelf" id="badges-shelf">
-            <span class="badge-slotLocked" id="badge-explorer" title="Curious Explorer: Visited all sections"><ion-icon name="compass-outline"></ion-icon></span>
-            <span class="badge-slotLocked" id="badge-commander" title="Command Commander: Ran a shell command"><ion-icon name="terminal-outline"></ion-icon></span>
-            <span class="badge-slotLocked" id="badge-validator" title="Model Validator: Checked sentiment sandbox"><ion-icon name="analytics-outline"></ion-icon></span>
-            <span class="badge-slotLocked" id="badge-creator" title="Creative Seeder: Seeded a generative artwork"><ion-icon name="sparkles-outline"></ion-icon></span>
-            <span class="badge-slotLocked" id="badge-analyzer" title="Job Match Checked: Checked job compatibility"><ion-icon name="briefcase-outline"></ion-icon></span>
-            <span class="badge-slotLocked" id="badge-gamer" title="Retro Gamer: Initiated Cyber-Snake model training"><ion-icon name="game-controller-outline"></ion-icon></span>
-            <span class="badge-slotLocked" id="badge-collaborator" title="Innovation Partner: Submitted a project proposal"><ion-icon name="people-outline"></ion-icon></span>
-          </div>
-        </div>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://github.com/Qasim00760" class="social-link" target="_blank">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.kaggle.com/qasimktkktk" class="social-link" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" alt="Kaggle" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/muhammad-qasim-1944b8349" class="social-link" target="_blank">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/__Muhammad Qasim/" class="social-link" target="_blank">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://twitter.com/__Muhammad Qasim" class="social-link" target="_blank">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </aside>
-
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-
-      <!-- NAVBAR -->
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Certifications</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-        </ul>
+      <nav class="nav" data-nav>
+        <a href="#work" class="nav-link" data-i18n="nav_work">Work</a>
+        <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+        <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+        <a href="#contact" class="btn btn-dark nav-hire" data-i18n="hire_me">Hire me</a>
       </nav>
 
-
-      <!-- ABOUT / HERO SECTION -->
-      <article class="about active" data-page="about">
-
-        <!-- Futuristic Interactive Hero Banner with 3D Neural Globe & tsParticles -->
-        <section class="hero-section">
-          <div id="hero-particle-container"></div>
-          
-          <div class="hero-content-wrapper">
-            <div class="hero-content">
-              <div class="system-status">
-                <span class="pulse-dot"></span>
-                <span class="status-text">SYSTEM LOG: ACTIVE // SECURE_PORTFOLIO</span>
-              </div>
-              <h1 class="hero-title">Muhammad Qasim</h1>
-              <h2 class="hero-tagline"><span class="hero-typing-title"></span><span class="typing-caret">|</span></h2>
-              <div class="separator-gradient"></div>
-              <p class="hero-description">
-                I am a Data Scientist and Machine Learning Engineer with a strong interest in working on real world AI problems. In this AI driven era, I started my journey by completing multiple online courses to build a solid foundation in data science and machine learning. After gaining theoretical knowledge, I shifted my focus toward practical.
-              </p>
-              
-              <!-- Stats Counter Row -->
-              <div class="stats-counter-row">
-                <div class="stat-card">
-                  <div class="stat-header">
-                    <span class="stat-number" data-target="500">0</span><span class="stat-suffix">K+</span>
-                  </div>
-                  <p class="stat-label">Rows Analyzed</p>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-header">
-                    <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
-                  </div>
-                  <p class="stat-label">ML Models Deployed</p>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-header">
-                    <span class="stat-number" data-target="95">0</span><span class="stat-suffix">%</span>
-                  </div>
-                  <p class="stat-label">Model Accuracy</p>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-header">
-                    <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
-                  </div>
-                  <p class="stat-label">AI Repositories</p>
-                </div>
-              </div>
-
-              <div class="hero-buttons">
-                <button class="hero-btn primary" onclick="document.querySelectorAll('[data-nav-link]')[3].click();">
-                  <ion-icon name="code-slash-outline"></ion-icon> Explore Projects
-                </button>
-                <button class="hero-btn secondary" onclick="document.querySelectorAll('[data-nav-link]')[4].click();">
-                  <ion-icon name="mail-outline"></ion-icon> Get in Touch
-                </button>
-              </div>
-            </div>
-            
-            <!-- Neural Net Globe Render Canvas Target -->
-            <div id="hero-3d-container"></div>
-          </div>
-        </section>
-
-        <!-- Interactive Terminal Section -->
-        <section class="terminal-section">
-          <div class="terminal-header">
-            <div class="terminal-buttons">
-              <span class="term-dot close"></span>
-              <span class="term-dot minimize"></span>
-              <span class="term-dot maximize"></span>
-            </div>
-            <div class="terminal-title">bash - visitor@qasim-ai-system: ~</div>
-          </div>
-          <div class="terminal-body" id="terminal-screen">
-            <div class="terminal-output-log">
-              <div class="terminal-line"><span class="term-system">system:</span> Connecting to hazara-university-ai-node... Success.</div>
-              <div class="terminal-line"><span class="term-system">system:</span> AI core load average: 0.12, 0.15, 0.08</div>
-              <div class="terminal-line">Type <span class="term-keyword">help</span> to display a list of all custom shell commands.</div>
-            </div>
-            <div class="terminal-prompt-line">
-              <span class="terminal-prompt">visitor@qasim-ai-node:~$</span>
-              <input type="text" id="terminal-input" autocomplete="off" placeholder="type 'help'...">
-            </div>
-          </div>
-        </section>
-
-        <!-- What I'm Doing -->
-        <section class="service">
-          <h3 class="h3 service-title">What I'm Doing</h3>
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/data-analysis.png" alt="Data Analytics" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Data Analytics</h4>
-                <p class="service-item-text">
-                  One of my favorite part of the project is Data Analysis. I Analyze the Data and solve complex problems with it.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/training-model.png" alt="Machine Learning" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Machine Learning</h4>
-                <p class="service-item-text">
-                  I train AI models with best accuracy, remove robustness and overfitting from the trained model.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/deployment.png" alt="Computer Vision" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Computer Vision</h4>
-                <p class="service-item-text">
-                  I give vision power to AI Technologies.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/consultency.png" alt="Generative AI" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Generative AI</h4>
-                <p class="service-item-text">
-                  I made LLMs fine tuned, and build fuctional AI Apps for special purposes and Bussiness needs.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/consultency.png" alt="AI Agents Development" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">AI Agents Development</h4>
-                <p class="service-item-text">
-                  I build AI Agents for saving the time taken by humans on repitive and logical tasks.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/consultency.png" alt="AI Automation" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">AI Automation</h4>
-                <p class="service-item-text">
-                  I Automate tasks with AI that are repititive and time consuming.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/consultency.png" alt="MLOps" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">MLOPs</h4>
-                <p class="service-item-text">
-                  I deploy your AI model on AWS cloud services.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/consultency.png" alt="Consultancy" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Consultency</h4>
-                <p class="service-item-text">
-                  Provide Consultency to my clients about solving their business problems through data provided by them.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </section>
-
-        <!-- Live Stats Dashboard Section -->
-        <section class="dashboard-section">
-          <h3 class="h3 dashboard-title">Live Data Dashboard</h3>
-          <div class="dashboard-grid">
-            <div class="dashboard-card git-stats">
-              <h4 class="dashboard-card-title"><ion-icon name="logo-github"></ion-icon> GitHub Analytics</h4>
-              <div class="dash-stat"><span class="dash-val">42+</span> Public Repos</div>
-              <div class="dash-stat"><span class="dash-val">840+</span> Commits (2025-2026)</div>
-              <div class="dash-stat"><span class="dash-val">12</span> Active Stars</div>
-            </div>
-            
-            <div class="dashboard-card kaggle-stats">
-              <h4 class="dashboard-card-title"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" style="width:14px; height:14px; display:inline-block; vertical-align:middle; filter:brightness(0) invert(1);" alt="Kaggle"> Kaggle Analytics</h4>
-              <div class="dash-stat"><span class="dash-val">Top 12%</span> Notebooks Expert</div>
-              <div class="dash-stat"><span class="dash-val">5+</span> Published Datasets</div>
-              <div class="dash-stat"><span class="dash-val">3</span> Active Competitions</div>
-            </div>
-
-            <div class="dashboard-card real-time-feed">
-              <h4 class="dashboard-card-title"><ion-icon name="pulse-outline"></ion-icon> Real-Time Data Feed</h4>
-              <div class="dash-stat">
-                <span class="dash-feed-label">BTC Price:</span> 
-                <span class="dash-val" id="feed-btc-price">Fetching...</span>
-              </div>
-              <div class="dash-stat">
-                <span class="dash-feed-label">ETH Price:</span> 
-                <span class="dash-val" id="feed-eth-price">Fetching...</span>
-              </div>
-              <div class="dash-stat">
-                <span class="dash-feed-label">HU Weather:</span> 
-                <span class="dash-val" id="feed-weather">Fetching...</span>
-              </div>
-              <span class="feed-timestamp" id="feed-time">Last update: --</span>
-            </div>
-
-            <div class="dashboard-card contribution-graph">
-              <h4 class="dashboard-card-title"><ion-icon name="git-commit-outline"></ion-icon> Developer Activity Map</h4>
-              <div class="contrib-grid-wrapper">
-                <div class="contrib-grid" id="contrib-grid"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Interactive Project Journey Map -->
-        <section class="journey-map-section">
-          <h3 class="h3 journey-map-title">Interactive Project Journey Map</h3>
-          <p class="journey-map-subtitle">Click on the active neural nodes to trace the dataset pipelines and deployment zones.</p>
-          
-          <div class="journey-map-container reveal-on-scroll">
-            <div class="journey-svg-wrapper">
-              <svg viewBox="0 0 600 240" class="journey-svg">
-                <!-- Grid dots background -->
-                <defs>
-                  <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid-dots)" rx="16" />
-                
-                <!-- Connections with animated glowing paths -->
-                <path d="M 120 120 L 300 120" stroke="rgba(139, 92, 246, 0.2)" stroke-width="3" />
-                <path d="M 300 120 L 480 120" stroke="rgba(0, 212, 255, 0.2)" stroke-width="3" />
-                <path id="journey-flow-1" d="M 120 120 L 300 120" stroke="var(--secondary)" stroke-dasharray="10 150" stroke-dashoffset="0" stroke-width="3" stroke-linecap="round" />
-                <path id="journey-flow-2" d="M 300 120 L 480 120" stroke="var(--primary)" stroke-dasharray="10 150" stroke-dashoffset="0" stroke-width="3" stroke-linecap="round" />
-                
-                <!-- Node 1: Raw Kaggle Data -->
-                <g class="map-node" data-node="kaggle" transform="translate(120, 120)">
-                  <circle r="22" class="node-glow secondary" />
-                  <circle r="14" class="node-core secondary" />
-                  <text y="38" text-anchor="middle" class="node-label">Global Datasets</text>
-                  <text y="52" text-anchor="middle" class="node-sublabel">Raw Data Seed</text>
-                </g>
-                
-                <!-- Node 2: Processing KPK -->
-                <g class="map-node" data-node="university" transform="translate(300, 120)">
-                  <circle r="22" class="node-glow accent" />
-                  <circle r="14" class="node-core accent" />
-                  <text y="38" text-anchor="middle" class="node-label">Hazara Campus</text>
-                  <text y="52" text-anchor="middle" class="node-sublabel">Model Training KPK</text>
-                </g>
-                
-                <!-- Node 3: AWS Cloud Deployment -->
-                <g class="map-node" data-node="aws" transform="translate(480, 120)">
-                  <circle r="22" class="node-glow primary" />
-                  <circle r="14" class="node-core primary" />
-                  <text y="38" text-anchor="middle" class="node-label">AWS Cloud</text>
-                  <text y="52" text-anchor="middle" class="node-sublabel">Deployed API Nodes</text>
-                </g>
-              </svg>
-            </div>
-            
-            <!-- Node Detail Card Overlay -->
-            <div class="map-node-detail-card" id="map-node-detail">
-              <h5 class="map-detail-title" id="map-detail-title">Click a node to inspect</h5>
-              <p class="map-detail-desc" id="map-detail-desc">Interactive data-visualization map. Select any glowing coordinate above to read details.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Generative AI Art Lab Section -->
-        <section class="art-lab-section">
-          <h3 class="h3 art-lab-title" id="art-lab-title">Generative AI Art Lab</h3>
-          <p class="art-lab-subtitle" id="art-lab-subtitle">Seed a neural algorithmic artwork using your name or any keyword.</p>
-          
-          <div class="art-lab-card reveal-on-scroll">
-            <div class="art-lab-inputs">
-              <input type="text" id="art-seed-input" class="art-input" placeholder="Type your name..." autocomplete="off" maxlength="30">
-              <div class="art-actions">
-                <button id="art-generate-btn" class="art-btn primary">
-                  <ion-icon name="sparkles-outline"></ion-icon> <span id="art-btn-generate-text">Generate Art</span>
-                </button>
-                <button id="art-download-btn" class="art-btn secondary" disabled>
-                  <ion-icon name="download-outline"></ion-icon> <span id="art-btn-download-text">Download PNG</span>
-                </button>
-              </div>
-            </div>
-            
-            <div class="art-lab-canvas-container">
-              <canvas id="art-canvas"></canvas>
-              <div class="art-canvas-overlay" id="art-canvas-overlay">
-                <span class="art-overlay-text" id="art-overlay-text">Awaiting input seed...</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="testimonials">
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/clients/maazali.png" alt="Maaz Ali" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Maaz Ali</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Shaheer's ability to turn raw data into actionable insights is truly impressive. He handled our data preprocessing and analysis with precision and produced results that directly impacted our business decisions. His dedication and technical expertise made a complex task look simple.
-                  </p>
-                </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/clients/dramitmitlal.png" alt="Dr. Amit Mittal" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Dr. Amit Mittal</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    When it comes to end-to-end data solutions, Shaheer is the go-to professional. I worked with him on a project requiring data modeling and deployment, and I was amazed by how smoothly the process went. His ability to navigate challenges and deliver on time, all while maintaining high-quality standards, made him an indispensable part of our team.
-                  </p>
-                </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/clients/samri.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Our collaboration with Shaheer was a game-changer. He not only brought strong technical skills but also a deep understanding of how to make data work for our business. His ability to create seamless data pipelines saved us countless hours, and his clear communication made the entire project stress-free.
-                  </p>
-                </div>
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/clients/Braxton.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I’ve worked with several data professionals, but Shaheer stands out for his holistic approach. He didn’t just provide data models; he ensured they were fully integrated into our system, ready to be used. His attention to detail and commitment to delivering exceptional work have set a new standard for our future collaborations.
-                  </p>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-        </section>
-
-        <!-- Testimonials Modal -->
-        <div class="modal-container" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-            <div class="modal-content">
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-              <time datetime="2021-06-14">14 June, 2021</time>
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- Clients -->
-        <section class="clients">
-          <h3 class="h3 clients-title">Clients</h3>
-          <ul class="clients-list has-scrollbar">
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-          </ul>
-        </section>
-
-      </article>
-
-
-      <!-- RESUME -->
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <!-- Recruiter AI Resume Compatibility Analyzer -->
-        <section class="resume-analyzer-section">
-          <h3 class="h3 section-title">🔍 Recruiter AI Resume Analyzer</h3>
-          <p class="analyzer-subtitle">Paste a Job Description (JD) below to automatically audit my qualifications and calculate a dynamic fit percentage!</p>
-          
-          <div class="analyzer-card content-card">
-            <div class="analyzer-inputs">
-              <textarea id="jd-input" class="analyzer-textarea" placeholder="Paste the job description here... (e.g., 'Looking for a Data Scientist with Python, SQL, and Machine learning model building experience...')"></textarea>
-              <button class="analyzer-btn primary" id="analyzer-btn">
-                <ion-icon name="pulse-outline"></ion-icon> Analyze Compatibility
-              </button>
-            </div>
-            
-            <div class="analyzer-results" id="analyzer-results" style="display: none;">
-              <div class="analyzer-gauge-wrapper">
-                <svg viewBox="0 0 100 100" class="analyzer-gauge">
-                  <circle cx="50" cy="50" r="40" class="gauge-bg"></circle>
-                  <circle cx="50" cy="50" r="40" class="gauge-fill" id="gauge-fill" stroke-dasharray="251" stroke-dashoffset="251"></circle>
-                  <text x="50" y="55" text-anchor="middle" class="gauge-text" id="gauge-value">0%</text>
-                </svg>
-                <div class="gauge-label">Audit Match Index</div>
-              </div>
-              
-              <div class="analyzer-feedback">
-                <h4 class="feedback-title" id="feedback-match-title">Computing alignment...</h4>
-                <div class="feedback-tags-row">
-                  <h5>Matching Core Skills:</h5>
-                  <div class="feedback-tags" id="feedback-matches">
-                    <!-- Matched tags injected here -->
-                  </div>
-                </div>
-                <p class="feedback-desc" id="feedback-summary">System analyzed job parameters against Qasim's academic progress node, scikit-learn models pipeline, and Devsil internship datasets check.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Education -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">BS Computer Science</h4>
-              <span>In Progress.</span>
-              <p class="timeline-text">
-                Completed 3rd out of 8 semisters, BS Computer Science at Hazara University, Pakistan.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">FSC</h4>
-              <span>2022 — 2024</span>
-              <p class="timeline-text">
-                I completed my FSC in 2024 at The Peace Group of Schools and Colleges karak, marking a significant milestone in the timeline of FCS.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">MATRIC</h4>
-              <span>2020 — 2022</span>
-              <p class="timeline-text">
-                Matriculated from Proficient Education System – paving the way for a bright academic future.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Experience -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">continous learner</h4>
-              <span>2024 — present</span>
-              <p class="timeline-text">
-                Continuously enhancing my skills through online courses, workshops, and personal projects in data science and machine learning to stay updated with the latest industry trends and technologies.
-              </p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Intern - Data Science</h4>
-              <span>February 2024 — May 2024</span>
-              <p class="timeline-text">
-                3-month internship at Devsil, where I worked on data analysis and machine learning projects, gaining practical experience in data preprocessing, building predictive models, and generating business insights. Collaborated closely with senior data scientists and contributed to optimizing data pipelines.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Skills -->
-        <section class="skill">
-          <h3 class="h3 skills-title">My Skills</h3>
-          <ul class="skills-list content-card">
-            
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Data Analytics</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Machine Learning</h5>
-                <data value="83">83%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 83%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Computer Vission</h5>
-                <data value="55">55%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 55%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">GENERATIVE AI</h5>
-                <data value="60">60%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 60%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">AI AUTOMATION</h5>
-                <data value="60">60%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 60%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">AI AGENTS DEVELOPMENT</h5>
-                <data value="70">70%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">MLOps</h5>
-                <data value="50">50%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Consultancy</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
-          </ul>
-
-          <h3 class="h3 skills-title">Technical Skills</h3>
-          <ul class="skills-list content-card">
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">GitHub</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Docker</h5>
-                <data value="30">30%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 30%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">AWS</h5>
-                <data value="40">40%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 40%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">SQL</h5>
-                <data value="65">65%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 65%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Linux</h5>
-                <data value="30">30%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 30%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Jupyter Notebook</h5>
-                <data value="95">95%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 95%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">VS Code</h5>
-                <data value="93">93%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 93%;"></div>
-              </div>
-            </li>
-          </ul>
-
-          <h3 class="h3 skills-title">Soft Skills</h3>
-          <ul class="skills-list content-card">
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Communication</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Problem Solving</h5>
-                <data value="100">100%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 100%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Team Work</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Leadership</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
-
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Time Management</h5>
-                <data value="88">88%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 88%;"></div>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!-- Interactive Learning Path Visualizer -->
-        <section class="learning-path-section">
-          <h3 class="h3 section-title">🎓 Interactive Learning Path Visualizer</h3>
-          <p class="learning-path-subtitle">Hover on nodes to unlock certification metadata, study hours, and credential hashes.</p>
-          
-          <div class="learning-path-tree content-card">
-            <div class="tree-line"></div>
-            
-            <!-- Path Node 1 -->
-            <div class="tree-node active-node" data-meta="bs-cs">
-              <div class="node-marker"></div>
-              <div class="node-card">
-                <span class="node-date">2024 — Present</span>
-                <h4 class="h4 node-title">BS Computer Science</h4>
-                <p class="node-text">Hazara University KPK. Core data structures, SQL databases, and algorithmic paradigms.</p>
-                <div class="node-expanded-info">
-                  <span>🎓 Status: Completed 3 Semesters</span>
-                  <span>📚 Focus: Design & Analysis of Algorithms</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Path Node 2 -->
-            <div class="tree-node" data-meta="devsil">
-              <div class="node-marker"></div>
-              <div class="node-card">
-                <span class="node-date">Feb 2024 — May 2024</span>
-                <h4 class="h4 node-title">Internship: Data Science</h4>
-                <p class="node-text">3-month internship at Devsil. Preprocessed enterprise sales datasets, compiled metrics.</p>
-                <div class="node-expanded-info">
-                  <span>🏢 Organization: Devsil Software Co.</span>
-                  <span>⚙️ Operations: Scikit-learn pipelines, outlier filters</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Path Node 3 -->
-            <div class="tree-node" data-meta="python-chilla">
-              <div class="node-marker"></div>
-              <div class="node-card">
-                <span class="node-date">2024</span>
-                <h4 class="h4 node-title">Python Ka Chilla Certification</h4>
-                <p class="node-text">40-Days Intensive Bootcamp on Advanced Python, Pandas, Matplotlib, and Scikit-Learn.</p>
-                <div class="node-expanded-info">
-                  <span>🏆 Certification Body: Codanics Node</span>
-                  <span>🏷️ Verification Badge: Active Verified</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </article>
-
-
-      <!-- CERTIFICATIONS & BADGES -->
-      <article class="blog" data-page="certifications">
-
-        <header>
-          <h2 class="h2 article-title">Certifications & Badges</h2>
-        </header>
-
-        <section class="blog-posts">
-          <ul class="blog-posts-list">
-            
-            <!-- Certification 1 -->
-            <li class="blog-post-item">
-              <a href="https://shaheer.neufera.com/assets/images/certificates/certificate-1727174127490.jpg" target="_blank" class="cert-card interactive-badge-card">
-                <figure class="blog-banner-box project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/certificates/certificate-1727174127490.jpg" alt="Python Ka Chilla (40-Days)" loading="lazy">
-                </figure>
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Codanics</p>
-                    <span class="dot"></span>
-                    <time datetime="2024-07-07">July 7, 2024</time>
-                  </div>
-                  <h3 class="h4 blog-item-title">Python Ka Chilla (40-Days)</h3>
-                  <div class="badge-verification-log">
-                    <span class="badge-indicator"><ion-icon name="checkmark-circle"></ion-icon> Verified Badge</span>
-                  </div>
-                </div>
-              </a>
-            </li>
-
-          </ul>
-        </section>
-
-      </article>
-
-
-      <!-- PORTFOLIO / PROJECTS & ML DEMO -->
-      <article class="portfolio" data-page="portfolio">
-
-         <header>
-           <h2 class="h2 article-title">Portfolio</h2>
-         </header>
-
-         <!-- Project Screenshots Carousel -->
-         <section class="project-carousel-section">
-           <h3 class="h3 section-title">📸 Project Showcases Gallery</h3>
-           
-           <div class="carousel-container reveal-on-scroll">
-             <div class="carousel-track" id="carousel-track">
-               <!-- Slide 1 -->
-               <div class="carousel-slide active">
-                 <img src="./assets/images/STUDENT MARKS ANALAYSIS.png" alt="Student Marks Analysis Dashboard">
-                 <div class="slide-caption">
-                   <h4>Student Marks Analysis Dashboard</h4>
-                   <p>Density graphs, subject variances, and automated scoring clusters.</p>
-                 </div>
-               </div>
-               
-               <!-- Slide 2 -->
-               <div class="carousel-slide">
-                 <img src="./assets/images/exploratory data.png" alt="Retail EDA Sandbox Output">
-                 <div class="slide-caption">
-                   <h4>Exploratory Data Retail Analytics</h4>
-                   <p>RFM demand analysis maps, anomaly filters, and categories tracking.</p>
-                 </div>
-               </div>
-               
-               <!-- Slide 3 -->
-               <div class="carousel-slide">
-                 <img src="./assets/images/Document_scanner.png" alt="OpenCV Document Scanner Engine">
-                 <div class="slide-caption">
-                   <h4>OpenCV Live Document Scanner</h4>
-                   <p>Warp corrections, edge traces, and perspective alignments.</p>
-                 </div>
-               </div>
-             </div>
-             
-             <button class="carousel-arrow prev" id="carousel-prev-btn"><ion-icon name="chevron-back-outline"></ion-icon></button>
-             <button class="carousel-arrow next" id="carousel-next-btn"><ion-icon name="chevron-forward-outline"></ion-icon></button>
-             
-             <div class="carousel-indicators" id="carousel-dots">
-               <span class="dot active" data-slide="0"></span>
-               <span class="dot" data-slide="1"></span>
-               <span class="dot" data-slide="2"></span>
-             </div>
-           </div>
-         </section>
-
-        <section class="projects">
-
-          <!-- Category filter list for Large Screens -->
-          <ul class="filter-list">
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Data Analytics</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Machine Learning</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Computer Vision</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>Generative AI</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>AI Agents</button>
-            </li>
-            <li class="filter-item">
-              <button data-filter-btn>AI Automation</button>
-            </li>
-          </ul>
-
-          <!-- Category filter select-box for Mobile -->
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-            </button>
-
-            <ul class="select-list">
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Data Analytics</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Machine Learning</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Computer Vision</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>Generative AI</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>AI Agents</button>
-              </li>
-              <li class="select-item">
-                <button data-select-item>AI Automation</button>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Projects grid -->
-          <ul class="project-list">
-
-            <!-- 1. Student Marks Analysis -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="student-marks">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/STUDENT MARKS ANALAYSIS.png" alt="student marks Analysis" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">data analytics</span>
-                  <h3 class="project-title">student marks Analysis</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Pandas</span>
-                    <span class="tech-badge">Matplotlib</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 2. Cricket Score Analysis -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="cricket-score">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/CRICKET  SCORE ANALYSIS.png" alt="Cricket Score Analysis" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">data analytics</span>
-                  <h3 class="project-title">Cricket Score Analysis</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Numpy</span>
-                    <span class="tech-badge">Seaborn</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 3. Exploratory Data Analysis -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="eda-retail">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/exploratory data.png" alt="Exploratory Data Analysis" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">data analytics</span>
-                  <h3 class="project-title">Exploratory Data Analysis</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">EDA</span>
-                    <span class="tech-badge">Retail</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 4. Car Price Prediction -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="car-price">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/car price prediction.png" alt="Car Price Prediction" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">machine learning</span>
-                  <h3 class="project-title">Car Price Prediction</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Scikit-Learn</span>
-                    <span class="tech-badge">Regression</span>
-                    <span class="tech-badge">Python</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 5. Machine Learning For TBM Penetration Prediction -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="tbm-penetration">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/Machine Learnig For TBM Penetration Prediction .png" alt="Machine Learnig For TBM Penetration Prediction" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">machine learning</span>
-                  <h3 class="project-title">Machine Learnig For TBM Penetration Prediction</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Random Forest</span>
-                    <span class="tech-badge">Predictive</span>
-                    <span class="tech-badge">Python</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 6. Employee Attrition Prediction -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="employee-attrition">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="assets/images/Neematte Media Corp.png" alt="Employee Attrition Prediction" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">machine learning</span>
-                  <h3 class="project-title">Employee Attrition Prediction</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">XGBoost</span>
-                    <span class="tech-badge">Classification</span>
-                    <span class="tech-badge">Analytics</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 7. Hospital Emergency Room Performance & Prediction -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="hospital-emergency">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/Hospital Emergency_Room_Performance & Prediction_Project.png" alt="Hospital Emergency_Room_Performance & Prediction_Project" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">data analytics</span>
-                  <h3 class="project-title">Hospital Emergency Room Performance & Prediction</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Healthcare AI</span>
-                    <span class="tech-badge">Scikit-Learn</span>
-                    <span class="tech-badge">Pandas</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 8. Advanced Social Media Engagement Prediction -->
-            <li class="project-item active" data-filter-item data-category="data analytics">
-              <div class="project-card-wrapper" data-case-study="social-media">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="assets/images/Advance_social_media.png" alt="Advanced Social Media Engagement Prediction" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">machine learning</span>
-                  <h3 class="project-title">Advanced Social Media Engagement Prediction</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Deep Learning</span>
-                    <span class="tech-badge">NLP</span>
-                    <span class="tech-badge">Python</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Mentorship-Program-Devsil" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 9. Document Scanner -->
-            <li class="project-item active" data-filter-item data-category="computer vision">
-              <div class="project-card-wrapper" data-case-study="document-scanner">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="assets/images/Document_scanner.png" alt="Document Scanner" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">computer vision</span>
-                  <h3 class="project-title">Document Scanner</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">OpenCV</span>
-                    <span class="tech-badge">Computer Vision</span>
-                    <span class="tech-badge">Python</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Document_Scanner_App" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 11. Parking Space Occupancy Detector -->
-            <li class="project-item active" data-filter-item data-category="computer vision">
-              <div class="project-card-wrapper" data-case-study="parking-detector">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="car-outline"></ion-icon>
-                  </div>
-                  <img src="assets/images/parking system.png" alt="Parking Space Occupancy Detector" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">computer vision</span>
-                  <h3 class="project-title">Parking Space Occupancy Detector</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Python</span>
-                    <span class="tech-badge">OpenCV</span>
-                    <span class="tech-badge">YOLOv8</span>
-                    <span class="tech-badge">Streamlit</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/Parking-Space-Occupancy-Detector" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <a href="https://parking-space-occupancy-detector-4xb2wcyiexrjjahqsaxz46.streamlit.app/" target="_blank" class="card-btn primary">
-                      <ion-icon name="open-outline"></ion-icon> Live App
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 10. NexaVerse -->
-            <li class="project-item active" data-filter-item data-category="generative ai">
-              <div class="project-card-wrapper" data-case-study="nexaverse">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-                  <img src="assets/images/NexaVerse.png" alt="NexaVerse" loading="lazy">
-                </figure>
-                
-                <div class="project-card-info">
-                  <span class="project-category-tag">generative ai</span>
-                  <h3 class="project-title">NexaVerse</h3>
-                  
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">Generative AI</span>
-                    <span class="tech-badge">LLMs</span>
-                    <span class="tech-badge">AI Agents</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/NexaVerse" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <button class="card-btn primary open-case-study">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 12. FYP-AI-Detection -->
-            <li class="project-item active" data-filter-item data-category="computer vision">
-              <div class="project-card-wrapper" data-case-study="fyp-ai-detection">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="search-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/FYP-AI-Detection.png" alt="FYP AI Detection" loading="lazy">
-                </figure>
-
-                <div class="project-card-info">
-                  <span class="project-category-tag">computer vision</span>
-                  <h3 class="project-title">FYP-AI-Detection</h3>
-
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">AI Detection</span>
-                    <span class="tech-badge">Machine Learning</span>
-                    <span class="tech-badge">Web App</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/FYP-AI-Detection-" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <a href="https://huggingface.co/spaces/qasimktk/ibscs-app" target="_blank" class="card-btn primary">
-                      <ion-icon name="open-outline"></ion-icon> Live App
-                    </a>
-                    <button class="card-btn primary open-case-study" style="display:none;">
-                      <ion-icon name="document-text-outline"></ion-icon> Story
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- 13. Road Pothole Detection -->
-            <li class="project-item active" data-filter-item data-category="computer vision">
-              <div class="project-card-wrapper" data-case-study="road-pothole-detection">
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="construct-outline"></ion-icon>
-                  </div>
-                  <img src="./assets/images/Road_pethole_detection.png" alt="Road Pothole Detection" loading="lazy">
-                </figure>
-
-                <div class="project-card-info">
-                  <span class="project-category-tag">computer vision</span>
-                  <h3 class="project-title">Road Pothole Detection</h3>
-
-                  <div class="tech-stack-container">
-                    <span class="tech-badge">YOLO</span>
-                    <span class="tech-badge">Computer Vision</span>
-                    <span class="tech-badge">Streamlit</span>
-                  </div>
-
-                  <div class="project-action-buttons">
-                    <a href="https://github.com/Qasim00760/road_pothole_detection" target="_blank" class="card-btn secondary">
-                      <ion-icon name="logo-github"></ion-icon> GitHub
-                    </a>
-                    <a href="https://roadpotholedetection-clragj4gnyy8v4jo2ojc68.streamlit.app/" target="_blank" class="card-btn primary">
-                      <ion-icon name="open-outline"></ion-icon> Live App
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-        </section>
-
-        <!-- Interactive ML Sandbox Section -->
-        <section class="ml-demo-section">
-          <h3 class="h3 ml-demo-title">🧠 Interactive ML Model Sandbox</h3>
-          <p class="ml-demo-subtitle">Try out a real-time Natural Language Processing (NLP) classifier running locally in your browser.</p>
-          
-          <div class="ml-sandbox-card reveal-on-scroll">
-            <div class="ml-sandbox-inputs">
-              <label for="sentiment-input" class="ml-input-label">Enter test query for real-time model inference:</label>
-              <textarea id="sentiment-input" class="ml-textarea" placeholder="Type something... e.g., 'This machine learning algorithm works beautifully and provides highly robust accuracy!'"></textarea>
-              
-              <div class="ml-preset-queries">
-                <span class="query-chip" onclick="document.getElementById('sentiment-input').value = this.innerText; document.getElementById('sentiment-input').dispatchEvent(new Event('input'));">This dataset is extremely clean and overfitting is minimal!</span>
-                <span class="query-chip" onclick="document.getElementById('sentiment-input').value = this.innerText; document.getElementById('sentiment-input').dispatchEvent(new Event('input'));">The prediction accuracy is quite low and the model suffers from high variance.</span>
-              </div>
-            </div>
-            
-            <div class="ml-sandbox-outputs">
-              <div class="inference-header">
-                <span class="inf-status"><span class="pulse-indicator"></span> MODEL: ACTIVE</span>
-                <span class="inf-time" id="inference-time">INFERENCE TIME: 0.0ms</span>
-              </div>
-              <div class="ml-meter-box">
-                <div class="ml-meter-label">Sentiment Classification: <span id="sentiment-label" class="neutral">Neutral</span></div>
-                <div class="sentiment-meter-track">
-                  <div id="sentiment-meter-fill" class="sentiment-meter-fill neutral" style="width: 50%;"></div>
-                </div>
-              </div>
-              <div class="confidence-stats">
-                <div class="conf-stat">Positive: <span id="conf-pos">33%</span></div>
-                <div class="conf-stat">Neutral: <span id="conf-neu">34%</span></div>
-                <div class="conf-stat">Negative: <span id="conf-neg">33%</span></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Live Algorithms Visual Code Playground -->
-        <section class="code-playground-section">
-          <h3 class="h3 section-title">🧪 Live Algorithms Playground</h3>
-          <p class="code-playground-subtitle">Choose a computer science algorithm to trigger visual execution inside the browser canvas.</p>
-          
-          <div class="playground-card content-card reveal-on-scroll">
-            <div class="playground-controls">
-              <div class="control-group">
-                <label for="algorithm-select">Select Algorithm:</label>
-                <select id="algorithm-select" class="playground-select">
-                  <option value="bubble-sort">Bubble Sort Complexity (O(n²))</option>
-                  <option value="binary-search">Binary Search Tree (O(log n))</option>
-                  <option value="regression">Gradient Descent Convergence</option>
-                </select>
-              </div>
-              
-              <div class="playground-buttons">
-                <button class="playground-btn primary" id="playground-run-btn">
-                  <ion-icon name="play-outline"></ion-icon> Run Algorithm
-                </button>
-                <button class="playground-btn secondary" id="playground-reset-btn" disabled>
-                  <ion-icon name="refresh-outline"></ion-icon> Reset Visualizer
-                </button>
-              </div>
-            </div>
-            
-            <!-- Visualization viewport panel -->
-            <div class="playground-viewport" id="playground-canvas-area">
-              <canvas id="playground-canvas" width="500" height="240"></canvas>
-              <div class="playground-terminal-output" id="playground-log">
-                <span class="log-line system">&gt; Core algorithm loader initialized. Select an algorithm above to begin simulation.</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Case Study Modal Panel Slideout -->
-        <div class="case-study-drawer" id="case-study-drawer">
-          <div class="drawer-overlay" id="drawer-close-overlay"></div>
-          <div class="drawer-content">
-            <button class="drawer-close-btn" id="drawer-close-btn">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <div class="drawer-body-scroll" id="case-study-content-target">
-              <!-- Dynamically populated by JS based on project ID -->
-            </div>
-          </div>
-        </div>
-
-      </article>
-
-
-      <!-- CONTACT -->
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="contact-form">
-          <form action="#" class="form" data-form id="contact-form">
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input id="form-fullname">
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input id="form-email">
-            </div>
-            
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input id="form-message"></textarea>
-            
-            <button class="form-btn" type="submit" disabled data-form-btn id="form-submit-btn">
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-            <div class="email-status-msg" id="email-status-msg"></div>
-          </form>
-        </section>
-
-        <!-- Email Newsletter Subscription Form -->
-        <section class="newsletter-subscription-section">
-          <div class="newsletter-card content-card">
-            <div class="newsletter-icon">
-              <ion-icon name="mail-unread-outline"></ion-icon>
-            </div>
-            <div class="newsletter-info">
-              <h4 class="h4 newsletter-title">Subscribe to Qasim's AI Newsletter</h4>
-              <p class="newsletter-desc">Get notified directly when Qasim deploys new models or publishes data analytics articles.</p>
-            </div>
-            <form class="newsletter-form" id="newsletter-form">
-              <input type="email" id="newsletter-email" class="form-input" placeholder="Enter your email address" required>
-              <button class="newsletter-btn" type="submit" id="newsletter-btn"><ion-icon name="notifications-outline"></ion-icon> Subscribe</button>
-            </form>
-            <div class="subscription-status-msg" id="subscription-msg"></div>
-          </div>
-        </section>
-
-        <!-- Map section -->
-        <section class="mapboxtitle" data-mapbox-title>
-          <h3 class="h3 map-title">Location</h3>
-        </section>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5986.7249099660285!2d73.24696683164305!3d34.42128930842356!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38de17bf878d1177%3A0x182b25a42224b791!2sHazara%20University%20Mansehra!5e0!3m2!1sen!2s!4v1729511014579!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </figure>
-        </section>
-
-        <!-- Collaboration Proposal Board -->
-        <section class="collaboration-board-section">
-          <h3 class="h3 section-title">🤝 Innovation Collaboration Board</h3>
-          <p class="collab-subtitle">Submit a research or development proposal to connect directly with Qasim's network nodes.</p>
-          
-          <div class="collaboration-grid">
-            <div class="collab-form-card content-card">
-              <form id="collab-form" class="collab-form">
-                <input type="text" id="collab-project" class="form-input" placeholder="Project Name" required>
-                <input type="text" id="collab-role" class="form-input" placeholder="Role Needed (e.g. Mentor, Data Scientist)" required>
-                <textarea id="collab-description" class="form-input" placeholder="Outline your proposal / project description" required></textarea>
-                <button type="submit" class="form-btn" id="collab-submit-btn">Submit Idea Node</button>
-              </form>
-            </div>
-            
-            <div class="collab-ledger-card content-card">
-              <h4 class="h4 ledger-title"><ion-icon name="list-circle-outline"></ion-icon> Active Project Ledger</h4>
-              <div class="ledger-list" id="ledger-list">
-                <!-- Preset items showing active community vibe -->
-                <div class="ledger-item">
-                  <div class="ledger-header">
-                    <span class="ledger-project">KPK Crop Yield Forecasting</span>
-                    <span class="ledger-status pending">Pending Node Review</span>
-                  </div>
-                  <p class="ledger-desc">Model crop dynamics in Karak using historic irrigation sensor datasets.</p>
-                  <div class="ledger-meta">Role: Core ML Modeler // Proposed: Just now</div>
-                </div>
-                
-                <div class="ledger-item">
-                  <div class="ledger-header">
-                    <span class="ledger-project">OpenCV Speed Tracing</span>
-                    <span class="ledger-status approved">Approved & Active</span>
-                  </div>
-                  <p class="ledger-desc">Track local highway speeds in KPK using real-time surveillance cameras.</p>
-                  <div class="ledger-meta">Role: Computer Vision Advisor // Proposed: 2 days ago</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-      </article>
-
+      <div class="header-actions">
+        <button class="lang-btn" id="lang-toggle" type="button" title="Switch language">اردو</button>
+        <a href="#contact" class="btn btn-dark btn-sm" data-i18n="hire_me">Hire me</a>
+        <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" data-menu-btn>
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="badge"><span class="badge-dot"></span><span data-i18n="hero_badge">Available for freelance &amp; full-time roles</span></p>
+          <h1 class="hero-title" data-i18n="hero_title">I turn data into AI products that work.</h1>
+          <p class="hero-sub" data-i18n="hero_sub">Muhammad Qasim — Full Stack AI Developer from Karak, Pakistan. From data analytics and machine learning to computer vision, generative AI, AI agents and automation, I take ideas from raw data to live deployment.</p>
+          <div class="hero-buttons">
+            <a href="#work" class="btn btn-primary" data-i18n="hero_cta_work">See my work</a>
+            <!-- TODO: add your CV at assets/cv/Muhammad-Qasim-CV.pdf -->
+            <a href="./assets/cv/Muhammad-Qasim-CV.pdf" class="btn btn-outline" download data-i18n="hero_cta_cv">Download CV</a>
+          </div>
+        </div>
+
+        <figure class="hero-photo">
+          <img src="./assets/images/Qasim.Png" alt="Muhammad Qasim" width="300" height="325">
+        </figure>
+      </div>
+    </section>
+
+    <!-- TECH STACK STRIP -->
+    <section class="stack" aria-label="Tech stack">
+      <div class="container stack-inner">
+        <p class="label" data-i18n="stack_label">Tech stack</p>
+        <ul class="tag-list">
+          <li class="tag">Python</li>
+          <li class="tag">Pandas</li>
+          <li class="tag">NumPy</li>
+          <li class="tag">Matplotlib</li>
+          <li class="tag">Seaborn</li>
+          <li class="tag">Scikit-Learn</li>
+          <li class="tag">XGBoost</li>
+          <li class="tag">OpenCV</li>
+          <li class="tag">YOLO</li>
+          <li class="tag">Streamlit</li>
+          <li class="tag">SQL</li>
+          <li class="tag">GitHub</li>
+          <li class="tag">Docker</li>
+          <li class="tag">AWS</li>
+          <li class="tag">Linux</li>
+          <li class="tag">WordPress</li>
+          <li class="tag">Jupyter</li>
+          <li class="tag">VS Code</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WORK / PROJECTS -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="label" data-i18n="work_label">Selected work</p>
+          <h2 class="section-title" data-i18n="work_title">Projects</h2>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Project categories" data-tabs>
+          <button class="tab active" role="tab" aria-selected="true" data-filter="all" data-i18n="tab_all">All</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="data-analytics" data-i18n="tab_data-analytics">Data Analytics</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="machine-learning" data-i18n="tab_machine-learning">Machine Learning</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="computer-vision" data-i18n="tab_computer-vision">Computer Vision</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="generative-ai" data-i18n="tab_generative-ai">Generative AI</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="ai-agents" data-i18n="tab_ai-agents">AI Agents</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="ai-automation" data-i18n="tab_ai-automation">AI Automation</button>
+        </div>
+
+        <!-- Cards are rendered from data/projects.js -->
+        <ul class="project-grid" data-project-grid></ul>
+
+        <div class="empty-state" data-empty-state hidden>
+          <p class="empty-title" data-i18n="empty_title">Projects coming soon</p>
+          <p class="empty-text" data-i18n="empty_text">I'm working on projects in this area. Check back soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="label" data-i18n="services_label">What I do</p>
+          <h2 class="section-title" data-i18n="services_title">Services</h2>
+        </div>
+
+        <ol class="service-grid">
+          <li class="service-card">
+            <span class="service-num">01</span>
+            <h3 class="service-title" data-i18n="svc1_title">Data Analytics</h3>
+            <p class="service-text" data-i18n="svc1_text">Analyzing data to find patterns and answer real business questions.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">02</span>
+            <h3 class="service-title" data-i18n="svc2_title">Machine Learning</h3>
+            <p class="service-text" data-i18n="svc2_text">Training accurate models and making sure they generalize instead of overfitting.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">03</span>
+            <h3 class="service-title" data-i18n="svc3_title">Computer Vision</h3>
+            <p class="service-text" data-i18n="svc3_text">Giving applications the ability to see: detection, scanning and image analysis.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">04</span>
+            <h3 class="service-title" data-i18n="svc4_title">Generative AI</h3>
+            <p class="service-text" data-i18n="svc4_text">Fine-tuning LLMs and building functional AI apps for specific business needs.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">05</span>
+            <h3 class="service-title" data-i18n="svc5_title">AI Agents Development</h3>
+            <p class="service-text" data-i18n="svc5_text">Building AI agents that save people time on repetitive and logical tasks.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">06</span>
+            <h3 class="service-title" data-i18n="svc6_title">AI Automation</h3>
+            <p class="service-text" data-i18n="svc6_text">Automating repetitive, time-consuming work with AI.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">07</span>
+            <h3 class="service-title" data-i18n="svc7_title">MLOps (AWS)</h3>
+            <p class="service-text" data-i18n="svc7_text">Deploying your AI models on AWS cloud services.</p>
+          </li>
+          <li class="service-card">
+            <span class="service-num">08</span>
+            <h3 class="service-title" data-i18n="svc8_title">Consultancy</h3>
+            <p class="service-text" data-i18n="svc8_text">Advising clients on solving their business problems with their own data.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ABOUT (dark) -->
+    <section class="section section-dark" id="about">
+      <div class="container about-inner">
+        <div class="about-bio">
+          <p class="label label-light" data-i18n="about_label">About</p>
+          <h2 class="section-title" data-i18n="about_title">A developer who learns by building.</h2>
+          <p class="about-text" data-i18n="about_text1">I'm a Full Stack AI Developer from Karak, Pakistan. I started with online courses in data science and machine learning, then moved quickly into hands-on work: an internship at Devsil Software Co. and a Full Stack AI Development Mentorship Program where I built real projects end to end.</p>
+          <p class="about-text" data-i18n="about_text2">Today I work across data analytics, machine learning, computer vision, generative AI, AI agents and automation. I build the front end, the back end and the AI layer, and deploy them so real users can use them.</p>
+          <p class="about-meta">Karak, KPK, Pakistan</p>
+        </div>
+
+        <div class="timeline-wrap">
+          <div class="timeline-group">
+            <h3 class="timeline-heading" data-i18n="exp_heading">Experience</h3>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <span class="timeline-date">Dec 2025 — June 2026</span>
+                <h4 class="timeline-title">Full Stack AI Development Mentorship Program · Devsil Software Co.</h4>
+                <p class="timeline-text">Built complete AI projects end to end: AI agents, workflow automation, LLM-powered tools and full stack web apps, with guidance from experienced developers.</p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-date">Feb 2024 — May 2024</span>
+                <h4 class="timeline-title">Data Science Intern · Devsil Software Co.</h4>
+                <p class="timeline-text">3-month internship working on data analysis and machine learning projects: data preprocessing, building predictive models, generating business insights and helping optimize data pipelines alongside senior data scientists.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="timeline-group">
+            <h3 class="timeline-heading" data-i18n="edu_heading">Education</h3>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <span class="timeline-date">In progress</span>
+                <h4 class="timeline-title">BS Computer Science · Hazara University</h4>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-date">2022 — 2024</span>
+                <h4 class="timeline-title">FSC · Chokara Science School and College, Chokara, Karak</h4>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-date">2020 — 2022</span>
+                <h4 class="timeline-title">Matric · Chokara Science School and College, Chokara, Karak</h4>
+              </li>
+            </ol>
+          </div>
+
+          <div class="timeline-group">
+            <h3 class="timeline-heading" data-i18n="cert_heading">Certification</h3>
+            <ol class="timeline">
+              <li class="timeline-item">
+                <span class="timeline-date">July 7, 2024</span>
+                <h4 class="timeline-title">Python Ka Chilla (40 Days) · Codanics</h4>
+                <!-- TODO: add assets/images/certificates/python-ka-chilla.jpg -->
+                <a href="./assets/images/certificates/python-ka-chilla.jpg" class="timeline-link" target="_blank" rel="noopener" data-i18n="cert_view">View certificate</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <p class="label" data-i18n="contact_label">Contact</p>
+          <h2 class="contact-title" data-i18n="contact_title">Have a project in mind? Let's build it.</h2>
+          <div class="contact-buttons">
+            <a href="mailto:qasimktk160@gmail.com" class="btn btn-primary">qasimktk160@gmail.com</a>
+            <a href="https://wa.me/923305350857" class="btn btn-outline" target="_blank" rel="noopener"><span data-i18n="contact_whatsapp">WhatsApp</span>&nbsp;<span dir="ltr">+92 330 5350857</span></a>
+          </div>
+          <ul class="social-list">
+            <li><a href="https://github.com/Qasim00760" class="social-link" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/muhammad-qasim-1944b8349" class="social-link" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.kaggle.com/qasimktkktk" class="social-link" target="_blank" rel="noopener">Kaggle</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- Global Floating AI Chatbot Assistant Widget -->
-  <div class="chatbot-widget" id="chatbot-widget">
-    <button class="chatbot-toggle-btn" id="chatbot-toggle" title="Ask Qasim's AI Assistant">
-      <ion-icon name="chatbubble-ellipses-outline" class="chat-open-icon"></ion-icon>
-      <ion-icon name="close-outline" class="chat-close-icon"></ion-icon>
-      <span class="chat-notification-pulse"></span>
-    </button>
-    
-    <div class="chat-window" id="chat-window">
-      <div class="chat-header">
-        <div class="chat-avatar">
-          <ion-icon name="logo-android"></ion-icon>
-        </div>
-        <div class="chat-status-info">
-          <h4 class="chat-agent-name">Qasim-AI Assistant</h4>
-          <span class="chat-agent-status"><span class="pulse-indicator"></span>Online</span>
-        </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; <span data-year>2026</span> Muhammad Qasim</p>
+      <p class="footer-meta">Karak, KPK, Pakistan</p>
+    </div>
+  </footer>
+
+  <!-- Portfolio assistant (floating chat) -->
+  <div class="chat" data-chat>
+    <div class="chat-panel" id="chat-panel" hidden>
+      <div class="chat-head">
+        <p class="chat-name" data-i18n="chat_name">Portfolio assistant</p>
+        <button class="chat-close" type="button" aria-label="Close chat" data-chat-close>&times;</button>
       </div>
-      <div class="chat-messages" id="chat-messages">
-        <div class="chat-msg system">
-          Hi! I am the portfolio assistant for Muhammad Qasim. Ask me anything about his projects, skills, or education, or click a quick suggestion below!
-        </div>
+      <div class="chat-messages" data-chat-messages>
+        <p class="chat-msg bot" data-i18n="chat_hello">Hi! Ask me about Qasim's projects, skills, education or how to contact him.</p>
       </div>
       <div class="chat-presets">
-        <button class="preset-chat-btn" data-preset="Tell me about your projects.">🤖 Projects Story</button>
-        <button class="preset-chat-btn" data-preset="What are your main skills?">🧠 Core Skills</button>
-        <button class="preset-chat-btn" data-preset="How can I contact Qasim?">📩 Contact Info</button>
+        <button type="button" class="chat-chip" data-preset="projects" data-i18n="chip_projects">Projects</button>
+        <button type="button" class="chat-chip" data-preset="skills" data-i18n="chip_skills">Skills</button>
+        <button type="button" class="chat-chip" data-preset="contact" data-i18n="chip_contact">Contact</button>
       </div>
-      <div class="chat-input-area">
-        <input type="text" id="chat-input" placeholder="Ask a question about Qasim...">
-        <button id="chat-send-btn"><ion-icon name="send-outline"></ion-icon></button>
-      </div>
+      <form class="chat-form" data-chat-form>
+        <input type="text" class="chat-input" placeholder="Ask a question..." aria-label="Ask a question" data-chat-input>
+        <button type="submit" class="chat-send" data-i18n="chat_send">Send</button>
+      </form>
     </div>
+    <button class="chat-toggle" type="button" aria-label="Open portfolio assistant" aria-controls="chat-panel" aria-expanded="false" data-chat-toggle>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></svg>
+    </button>
   </div>
 
+  <script src="./data/projects.js"></script>
+  <script src="./assets/js/script.js?v=5"></script>
 
-  <!-- Animation CDNs (Three.js & tsParticles) — defer so they don't block rendering -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.12.0/tsparticles.bundle.min.js"></script>
-
-  <!-- EmailJS CDN -->
-  <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-  <!-- Scripts -->
-  <script defer src="./assets/js/script.js?v=2"></script>
-  <script defer src="./assets/js/animations.js?v=2"></script>
-
-  <!-- Canvas Overlay for Custom Cursor Explosion particles -->
-  <canvas id="cursor-explosion-canvas"></canvas>
-
-  <!-- Retro Game Modal Overlay -->
-  <div class="retro-game-modal" id="retro-game-modal">
-    <div class="retro-game-overlay" id="retro-game-close-overlay"></div>
-    <div class="retro-arcade-cabinet">
-      <div class="arcade-header">
-        <div class="arcade-title">👾 CYBER-SNAKE // MODEL TRAINER</div>
-        <button class="arcade-close-btn" id="arcade-close-btn">
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-      <div class="arcade-screen">
-        <div class="arcade-intro" id="arcade-intro-screen">
-          <h1 class="arcade-logo">NEURAL SNAKE</h1>
-          <p class="arcade-tagline">Train the snake model by eating Data Bytes. Avoid Wall Collisions and Overfitting (tail intersect)!</p>
-          <div class="arcade-controls-guide">
-            <span class="control-key">▲ Up</span>
-            <span class="control-key">▼ Down</span>
-            <span class="control-key">◀ Left</span>
-            <span class="control-key">▶ Right</span>
-          </div>
-          <button class="arcade-play-btn" id="arcade-start-btn">INITIALIZE TRAINING</button>
-          <div class="arcade-highscore-row">HIGH SCORE: <span id="arcade-highscore-val">0</span> MB</div>
-        </div>
-        <div class="arcade-gameplay" id="arcade-gameplay-screen" style="display:none;">
-          <canvas id="snake-canvas" width="400" height="300"></canvas>
-          <div class="arcade-stats-bar">
-            <div class="stat">SCORE: <span id="snake-score-val">0</span> MB</div>
-            <div class="stat">EPOCH: <span id="snake-epoch-val">1</span></div>
-          </div>
-        </div>
-        <div class="arcade-gameover" id="arcade-gameover-screen" style="display:none;">
-          <h2 class="gameover-title">OVERFITTING DETECTED!</h2>
-          <p class="gameover-reason" id="gameover-reason-text">System crashed: tail collision.</p>
-          <p class="gameover-score">Final Score: <span id="gameover-score-val">0</span> MB (Epoch <span id="gameover-epoch-val">1</span>)</p>
-          <button class="arcade-play-btn" id="arcade-restart-btn">RE-TRAIN MODEL</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PWA Install Banner -->
-  <div class="pwa-install-banner" id="pwa-install-banner">
-    <div class="pwa-content">
-      <div class="pwa-icon-box">
-        <ion-icon name="download-outline"></ion-icon>
-      </div>
-      <div class="pwa-text-box">
-        <h4 class="pwa-title" id="pwa-install-title">Install Qasim's App</h4>
-        <p class="pwa-desc" id="pwa-install-desc">Access Qasim's portfolio offline with a native app feel.</p>
-      </div>
-    </div>
-    <div class="pwa-actions">
-      <button class="pwa-btn accept" id="pwa-install-btn">Install</button>
-      <button class="pwa-btn dismiss" id="pwa-dismiss-btn">Dismiss</button>
-    </div>
-  </div>
-
-  <!-- Floating Achievement Notification Toast -->
-  <div class="achievement-toast" id="achievement-toast">
-    <div class="toast-icon">🏆</div>
-    <div class="toast-body">
-      <h5 class="toast-title">Achievement Unlocked!</h5>
-      <p class="toast-desc" id="achievement-toast-desc">Curious Explorer</p>
-    </div>
-  </div>
-
-  <!-- Ionicons -->
-  <script defer type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script defer nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <!-- Service Worker Register Script -->
   <script>
-    if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-          .then((reg) => {
-            console.log('Service Worker registered successfully:', reg.scope);
-            if (reg.update) reg.update();
-          })
-          .catch((err) => console.error('Service Worker registration failed:', err));
-      });
-    } else if ('serviceWorker' in navigator && window.location.protocol === 'file:') {
-      console.log('Service Worker not registered: page opened via file://. Use http(s) or localhost for PWA support.');
+    if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(() => {}));
     }
   </script>
-
 </body>
 
 </html>

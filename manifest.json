@@ -1,11 +1,11 @@
 {
   "name": "Muhammad Qasim - AI Portfolio",
   "short_name": "Qasim AI",
-  "description": "Personal portfolio of Muhammad Qasim, Data Scientist and AI Engineer.",
+  "description": "Personal portfolio of Muhammad Qasim, Full Stack AI Developer.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#00d4ff",
+  "background_color": "#F4F5F7",
+  "theme_color": "#F4F5F7",
   "orientation": "portrait-primary",
   "icons": [
     {

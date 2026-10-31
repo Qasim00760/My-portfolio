@@ -6,8 +6,8 @@
  * ============================================================
  */
 
-const CACHE_NAME   = 'qasim-portfolio-v5';
-const STATIC_CACHE = 'qasim-static-v5';
+const CACHE_NAME   = 'qasim-portfolio-v6';
+const STATIC_CACHE = 'qasim-static-v7';
 const CDN_CACHE    = 'qasim-cdn-v5';
 
 // ---- Core local assets to pre-cache on install ----
@@ -16,32 +16,15 @@ const LOCAL_ASSETS = [
   './index.html',
   './assets/css/style.css',
   './assets/js/script.js',
-  './assets/js/animations.js',
+  './data/projects.js',
   './assets/images/Qasim.Png',
-  './assets/images/my-avatar.png',
-  './assets/images/data-analysis.png',
-  './assets/images/training-model.png',
-  './assets/images/deployment.png',
-  './assets/images/consultency.png',
-  './assets/images/icon-quote.svg',
-  './assets/images/logo.svg',
-  './assets/images/logo-1-color.png',
-  './assets/images/logo-2-color.png',
-  './assets/images/logo-3-color.png',
-  './assets/images/logo-4-color.png',
-  './assets/images/logo-5-color.png',
-  './assets/images/logo-6-color.png',
   './manifest.json'
 ];
 
 // ---- External CDN domains to intercept and cache ----
 const CDN_HOSTS = [
-  'cdnjs.cloudflare.com',      // Three.js + tsParticles
-  'cdn.jsdelivr.net',          // EmailJS
-  'unpkg.com',                 // Ionicons
   'fonts.googleapis.com',      // Google Fonts CSS
   'fonts.gstatic.com',         // Google Fonts files
-  'upload.wikimedia.org',      // Kaggle logo
 ];
 
 // =============================================
@@ -130,9 +113,9 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // ---- Local assets: Network-First for main JS files, Stale-While-Revalidate for others ----
+  // ---- Local assets: Network-First for pages and main JS/CSS files, Stale-While-Revalidate for others ----
   if (url.origin === self.location.origin) {
-    const isCoreScript = url.pathname.endsWith('/script.js') || url.pathname.endsWith('/animations.js') || url.pathname.endsWith('/style.css');
+    const isCoreScript = request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/script.js') || url.pathname.endsWith('/projects.js') || url.pathname.endsWith('/style.css');
 
     if (isCoreScript) {
       // Network-First strategy: always fetch live updates when online, fallback to cache when offline

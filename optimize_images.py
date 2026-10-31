@@ -14,30 +14,20 @@ if sys.platform == "win32":
 # ===== CONFIGURATION =====
 IMAGE_DIRS = [
     "./assets/images",
-    "./assets/images/clients",
     "./assets/images/thumbnail",
 ]
 
 # Max dimensions for different categories
 PROJECT_MAX_WIDTH = 800   # Max width for project screenshots
-AVATAR_MAX_WIDTH  = 200   # Max width for testimonial avatars (shown at 60px)
+AVATAR_MAX_WIDTH  = 200   # Max width for small avatar images
 PROFILE_MAX_WIDTH = 300   # Max width for your own profile picture
 GENERAL_MAX_WIDTH = 800   # Default for anything else
 
 # Files that should NOT be compressed (icons, small logos, SVGs)
-SKIP_FILES = {
-    "logo.ico", "logo.svg", "icon-quote.svg", "icon-app.svg",
-    "icon-design.svg", "icon-dev.svg", "icon-photo.svg",
-    "my-avatar.png", "avatar-1.png", "avatar-2.png",
-    "avatar-3.png", "avatar-4.png",
-    "logo-1-color.png", "logo-2-color.png", "logo-3-color.png",
-    "logo-4-color.png", "logo-5-color.png", "logo-6-color.png",
-    "consultency.png", "data-analysis.png", "deployment.png",
-    "training-model.png",
-}
+SKIP_FILES = set()
 
-# Avatar images in clients folder (need heavy resize)
-AVATAR_FILES = {"dramitmitlal.png", "maazali.png", "samri.png", "Braxton.png"}
+# Avatar images (need heavy resize)
+AVATAR_FILES = set()
 
 # Profile picture files
 PROFILE_FILES = {"Qasim.Png", "Qasim Pic.png"}
