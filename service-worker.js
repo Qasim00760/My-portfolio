@@ -97,7 +97,7 @@ self.addEventListener('fetch', event => {
               .catch(() => {/* ignore network errors for CDN revalidation */});
             return cachedRes;
           }
-          // Not in cache yet — fetch and cache it
+          // Not in cache yet, so fetch and cache it
           return fetch(request).then(netRes => {
             if (netRes && netRes.status === 200) {
               cache.put(request, netRes.clone());

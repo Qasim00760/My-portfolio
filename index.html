@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -10,15 +10,29 @@
   <!-- PWA Manifest & Meta -->
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#F4F5F7">
+
+  <!-- Theme: runs before the CSS so the page never flashes the wrong colors.
+       Uses the visitor's saved choice, otherwise their system setting. -->
+  <script>
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem("theme"); } catch (e) {}
+      if (theme !== "light" && theme !== "dark") {
+        theme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", theme === "dark" ? "#0B0D12" : "#F4F5F7");
+    })();
+  </script>
   <link rel="apple-touch-icon" href="./assets/images/Qasim.Png">
   <link rel="icon" href="./assets/images/Qasim.Png" type="image/png">
 
-  <!-- Fonts: Space Grotesk (headings), Inter (body), JetBrains Mono (labels), Noto Nastaliq Urdu (Urdu) -->
+  <!-- Fonts: Space Grotesk (headings), Inter (body), JetBrains Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=5">
+  <link rel="stylesheet" href="./assets/css/style.css?v=7">
 </head>
 
 <body>
@@ -26,19 +40,22 @@
   <!-- HEADER -->
   <header class="header" data-header>
     <div class="container header-inner">
-      <a href="#top" class="logo">Qasim<span>.</span></a>
+      <a href="#top" class="logo">Muhammad Qasim<span>.</span></a>
 
       <nav class="nav" data-nav>
-        <a href="#work" class="nav-link" data-i18n="nav_work">Work</a>
-        <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
-        <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
-        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
-        <a href="#contact" class="btn btn-dark nav-hire" data-i18n="hire_me">Hire me</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-dark nav-hire">Hire me</a>
       </nav>
 
       <div class="header-actions">
-        <button class="lang-btn" id="lang-toggle" type="button" title="Switch language">اردو</button>
-        <a href="#contact" class="btn btn-dark btn-sm" data-i18n="hire_me">Hire me</a>
+        <button class="theme-btn" type="button" aria-label="Switch to dark mode" data-theme-toggle>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-dark btn-sm">Hire me</a>
         <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" data-menu-btn>
           <span></span><span></span>
         </button>
@@ -52,13 +69,11 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="badge"><span class="badge-dot"></span><span data-i18n="hero_badge">Available for freelance &amp; full-time roles</span></p>
-          <h1 class="hero-title" data-i18n="hero_title">I turn data into AI products that work.</h1>
-          <p class="hero-sub" data-i18n="hero_sub">Muhammad Qasim — Full Stack AI Developer from Karak, Pakistan. From data analytics and machine learning to computer vision, generative AI, AI agents and automation, I take ideas from raw data to live deployment.</p>
+          <h1 class="hero-title">I build AI products, from data to&nbsp;deployment.</h1>
+          <p class="hero-sub">I'm Muhammad Qasim, a Full Stack AI Developer from Karak, Pakistan. I work across data analytics, machine learning, computer vision, generative AI, AI agents and automation, and I ship them as live apps people can use.</p>
           <div class="hero-buttons">
-            <a href="#work" class="btn btn-primary" data-i18n="hero_cta_work">See my work</a>
-            <!-- TODO: add your CV at assets/cv/Muhammad-Qasim-CV.pdf -->
-            <a href="./assets/cv/Muhammad-Qasim-CV.pdf" class="btn btn-outline" download data-i18n="hero_cta_cv">Download CV</a>
+            <a href="#work" class="btn btn-primary">See my work</a>
+            <a href="./assets/cv/Muhammad-Qasim-CV.pdf?v=2" class="btn btn-outline" download="Muhammad-Qasim-CV.pdf">Download CV</a>
           </div>
         </div>
 
@@ -71,9 +86,10 @@
     <!-- TECH STACK STRIP -->
     <section class="stack" aria-label="Tech stack">
       <div class="container stack-inner">
-        <p class="label" data-i18n="stack_label">Tech stack</p>
+        <p class="label">Tech stack</p>
         <ul class="tag-list">
           <li class="tag">Python</li>
+          <li class="tag">SQL</li>
           <li class="tag">Pandas</li>
           <li class="tag">NumPy</li>
           <li class="tag">Matplotlib</li>
@@ -82,13 +98,17 @@
           <li class="tag">XGBoost</li>
           <li class="tag">OpenCV</li>
           <li class="tag">YOLO</li>
+          <li class="tag">LLMs</li>
+          <li class="tag">Ollama</li>
+          <li class="tag">n8n</li>
+          <li class="tag">Airtable</li>
+          <li class="tag">React</li>
+          <li class="tag">Tailwind</li>
+          <li class="tag">FastAPI</li>
+          <li class="tag">Node.js</li>
           <li class="tag">Streamlit</li>
-          <li class="tag">SQL</li>
-          <li class="tag">GitHub</li>
-          <li class="tag">Docker</li>
-          <li class="tag">AWS</li>
-          <li class="tag">Linux</li>
-          <li class="tag">WordPress</li>
+          <li class="tag">Hugging Face</li>
+          <li class="tag">Git &amp; GitHub</li>
           <li class="tag">Jupyter</li>
           <li class="tag">VS Code</li>
         </ul>
@@ -99,26 +119,26 @@
     <section class="section" id="work">
       <div class="container">
         <div class="section-head">
-          <p class="label" data-i18n="work_label">Selected work</p>
-          <h2 class="section-title" data-i18n="work_title">Projects</h2>
+          <p class="label">Selected work</p>
+          <h2 class="section-title">Projects</h2>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Project categories" data-tabs>
-          <button class="tab active" role="tab" aria-selected="true" data-filter="all" data-i18n="tab_all">All</button>
-          <button class="tab" role="tab" aria-selected="false" data-filter="data-analytics" data-i18n="tab_data-analytics">Data Analytics</button>
-          <button class="tab" role="tab" aria-selected="false" data-filter="machine-learning" data-i18n="tab_machine-learning">Machine Learning</button>
-          <button class="tab" role="tab" aria-selected="false" data-filter="computer-vision" data-i18n="tab_computer-vision">Computer Vision</button>
-          <button class="tab" role="tab" aria-selected="false" data-filter="generative-ai" data-i18n="tab_generative-ai">Generative AI</button>
-          <button class="tab" role="tab" aria-selected="false" data-filter="ai-agents" data-i18n="tab_ai-agents">AI Agents</button>
-          <button class="tab" role="tab" aria-selected="false" data-filter="ai-automation" data-i18n="tab_ai-automation">AI Automation</button>
+          <button class="tab active" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="data-analytics">Data Analytics</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="machine-learning">Machine Learning</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="computer-vision">Computer Vision</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="generative-ai">Generative AI</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="ai-agents">AI Agents</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="ai-automation">AI Automation</button>
         </div>
 
         <!-- Cards are rendered from data/projects.js -->
         <ul class="project-grid" data-project-grid></ul>
 
         <div class="empty-state" data-empty-state hidden>
-          <p class="empty-title" data-i18n="empty_title">Projects coming soon</p>
-          <p class="empty-text" data-i18n="empty_text">I'm working on projects in this area. Check back soon.</p>
+          <p class="empty-title">Projects coming soon</p>
+          <p class="empty-text">I'm working on projects in this area. Check back soon.</p>
         </div>
       </div>
     </section>
@@ -127,50 +147,50 @@
     <section class="section" id="services">
       <div class="container">
         <div class="section-head">
-          <p class="label" data-i18n="services_label">What I do</p>
-          <h2 class="section-title" data-i18n="services_title">Services</h2>
+          <p class="label">What I do</p>
+          <h2 class="section-title">Services</h2>
         </div>
 
         <ol class="service-grid">
           <li class="service-card">
             <span class="service-num">01</span>
-            <h3 class="service-title" data-i18n="svc1_title">Data Analytics</h3>
-            <p class="service-text" data-i18n="svc1_text">Analyzing data to find patterns and answer real business questions.</p>
+            <h3 class="service-title">Data Analytics</h3>
+            <p class="service-text">Analyzing data to find patterns and answer real business questions.</p>
           </li>
           <li class="service-card">
             <span class="service-num">02</span>
-            <h3 class="service-title" data-i18n="svc2_title">Machine Learning</h3>
-            <p class="service-text" data-i18n="svc2_text">Training accurate models and making sure they generalize instead of overfitting.</p>
+            <h3 class="service-title">Machine Learning</h3>
+            <p class="service-text">Training accurate models and making sure they generalize instead of overfitting.</p>
           </li>
           <li class="service-card">
             <span class="service-num">03</span>
-            <h3 class="service-title" data-i18n="svc3_title">Computer Vision</h3>
-            <p class="service-text" data-i18n="svc3_text">Giving applications the ability to see: detection, scanning and image analysis.</p>
+            <h3 class="service-title">Computer Vision</h3>
+            <p class="service-text">Giving applications the ability to see: detection, scanning and image analysis.</p>
           </li>
           <li class="service-card">
             <span class="service-num">04</span>
-            <h3 class="service-title" data-i18n="svc4_title">Generative AI</h3>
-            <p class="service-text" data-i18n="svc4_text">Fine-tuning LLMs and building functional AI apps for specific business needs.</p>
+            <h3 class="service-title">Generative AI</h3>
+            <p class="service-text">Building LLM-powered apps and tools for specific business needs.</p>
           </li>
           <li class="service-card">
             <span class="service-num">05</span>
-            <h3 class="service-title" data-i18n="svc5_title">AI Agents Development</h3>
-            <p class="service-text" data-i18n="svc5_text">Building AI agents that save people time on repetitive and logical tasks.</p>
+            <h3 class="service-title">AI Agents Development</h3>
+            <p class="service-text">Building AI agents that save people time on repetitive and logical tasks.</p>
           </li>
           <li class="service-card">
             <span class="service-num">06</span>
-            <h3 class="service-title" data-i18n="svc6_title">AI Automation</h3>
-            <p class="service-text" data-i18n="svc6_text">Automating repetitive, time-consuming work with AI.</p>
+            <h3 class="service-title">AI Automation</h3>
+            <p class="service-text">Automating repetitive, time-consuming work with AI.</p>
           </li>
           <li class="service-card">
             <span class="service-num">07</span>
-            <h3 class="service-title" data-i18n="svc7_title">MLOps (AWS)</h3>
-            <p class="service-text" data-i18n="svc7_text">Deploying your AI models on AWS cloud services.</p>
+            <h3 class="service-title">Deployment</h3>
+            <p class="service-text">Deploying AI models as live web apps on Streamlit Cloud and Hugging Face Spaces.</p>
           </li>
           <li class="service-card">
             <span class="service-num">08</span>
-            <h3 class="service-title" data-i18n="svc8_title">Consultancy</h3>
-            <p class="service-text" data-i18n="svc8_text">Advising clients on solving their business problems with their own data.</p>
+            <h3 class="service-title">Consultancy</h3>
+            <p class="service-text">Advising clients on solving their business problems with their own data.</p>
           </li>
         </ol>
       </div>
@@ -180,56 +200,51 @@
     <section class="section section-dark" id="about">
       <div class="container about-inner">
         <div class="about-bio">
-          <p class="label label-light" data-i18n="about_label">About</p>
-          <h2 class="section-title" data-i18n="about_title">A developer who learns by building.</h2>
-          <p class="about-text" data-i18n="about_text1">I'm a Full Stack AI Developer from Karak, Pakistan. I started with online courses in data science and machine learning, then moved quickly into hands-on work: an internship at Devsil Software Co. and a Full Stack AI Development Mentorship Program where I built real projects end to end.</p>
-          <p class="about-text" data-i18n="about_text2">Today I work across data analytics, machine learning, computer vision, generative AI, AI agents and automation. I build the front end, the back end and the AI layer, and deploy them so real users can use them.</p>
+          <p class="label label-light">About</p>
+          <h2 class="section-title">A developer who learns by building.</h2>
+          <p class="about-text">I'm a Full Stack AI Developer from Karak, Pakistan. I started with online courses in data science and machine learning, then joined a 7-month Data Science &amp; Full Stack AI Development Mentorship Program at Devsil Software Co., where I built real projects end to end.</p>
+          <p class="about-text">Today I work across data analytics, machine learning, computer vision, generative AI, AI agents and automation. I build the front end, the back end and the AI layer, and deploy them so real users can use them.</p>
           <p class="about-meta">Karak, KPK, Pakistan</p>
         </div>
 
         <div class="timeline-wrap">
           <div class="timeline-group">
-            <h3 class="timeline-heading" data-i18n="exp_heading">Experience</h3>
+            <h3 class="timeline-heading">Experience</h3>
             <ol class="timeline">
               <li class="timeline-item">
-                <span class="timeline-date">Dec 2025 — June 2026</span>
-                <h4 class="timeline-title">Full Stack AI Development Mentorship Program · Devsil Software Co.</h4>
-                <p class="timeline-text">Built complete AI projects end to end: AI agents, workflow automation, LLM-powered tools and full stack web apps, with guidance from experienced developers.</p>
-              </li>
-              <li class="timeline-item">
-                <span class="timeline-date">Feb 2024 — May 2024</span>
-                <h4 class="timeline-title">Data Science Intern · Devsil Software Co.</h4>
-                <p class="timeline-text">3-month internship working on data analysis and machine learning projects: data preprocessing, building predictive models, generating business insights and helping optimize data pipelines alongside senior data scientists.</p>
+                <span class="timeline-date">Dec 2025 - June 2026 (7 months)</span>
+                <h4 class="timeline-title">Data Science &amp; Full Stack AI Development Mentorship Program · Devsil Software Co.</h4>
+                <p class="timeline-text">7-month hands-on program covering data science and full stack AI development. Worked on data analysis and machine learning projects (data preprocessing, predictive models, business insights), then built complete AI products end to end: AI agents, workflow automation, LLM-powered tools and full stack web apps.</p>
               </li>
             </ol>
           </div>
 
           <div class="timeline-group">
-            <h3 class="timeline-heading" data-i18n="edu_heading">Education</h3>
+            <h3 class="timeline-heading">Education</h3>
             <ol class="timeline">
               <li class="timeline-item">
                 <span class="timeline-date">In progress</span>
                 <h4 class="timeline-title">BS Computer Science · Hazara University</h4>
               </li>
               <li class="timeline-item">
-                <span class="timeline-date">2022 — 2024</span>
+                <span class="timeline-date">2022 - 2024</span>
                 <h4 class="timeline-title">FSC · Chokara Science School and College, Chokara, Karak</h4>
               </li>
               <li class="timeline-item">
-                <span class="timeline-date">2020 — 2022</span>
+                <span class="timeline-date">2020 - 2022</span>
                 <h4 class="timeline-title">Matric · Chokara Science School and College, Chokara, Karak</h4>
               </li>
             </ol>
           </div>
 
           <div class="timeline-group">
-            <h3 class="timeline-heading" data-i18n="cert_heading">Certification</h3>
+            <h3 class="timeline-heading">Certification</h3>
             <ol class="timeline">
               <li class="timeline-item">
                 <span class="timeline-date">July 7, 2024</span>
                 <h4 class="timeline-title">Python Ka Chilla (40 Days) · Codanics</h4>
                 <!-- TODO: add assets/images/certificates/python-ka-chilla.jpg -->
-                <a href="./assets/images/certificates/python-ka-chilla.jpg" class="timeline-link" target="_blank" rel="noopener" data-i18n="cert_view">View certificate</a>
+                <a href="./assets/images/certificates/python-ka-chilla.jpg" class="timeline-link" target="_blank" rel="noopener">View certificate</a>
               </li>
             </ol>
           </div>
@@ -241,11 +256,11 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-card">
-          <p class="label" data-i18n="contact_label">Contact</p>
-          <h2 class="contact-title" data-i18n="contact_title">Have a project in mind? Let's build it.</h2>
+          <p class="label">Contact</p>
+          <h2 class="contact-title">Have a project in mind? Let's build it.</h2>
           <div class="contact-buttons">
             <a href="mailto:qasimktk160@gmail.com" class="btn btn-primary">qasimktk160@gmail.com</a>
-            <a href="https://wa.me/923305350857" class="btn btn-outline" target="_blank" rel="noopener"><span data-i18n="contact_whatsapp">WhatsApp</span>&nbsp;<span dir="ltr">+92 330 5350857</span></a>
+            <a href="https://wa.me/923305350857" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp&nbsp;+92 330 5350857</a>
           </div>
           <ul class="social-list">
             <li><a href="https://github.com/Qasim00760" class="social-link" target="_blank" rel="noopener">GitHub</a></li>
@@ -270,20 +285,20 @@
   <div class="chat" data-chat>
     <div class="chat-panel" id="chat-panel" hidden>
       <div class="chat-head">
-        <p class="chat-name" data-i18n="chat_name">Portfolio assistant</p>
+        <p class="chat-name">Portfolio assistant</p>
         <button class="chat-close" type="button" aria-label="Close chat" data-chat-close>&times;</button>
       </div>
       <div class="chat-messages" data-chat-messages>
-        <p class="chat-msg bot" data-i18n="chat_hello">Hi! Ask me about Qasim's projects, skills, education or how to contact him.</p>
+        <p class="chat-msg bot">Hi! Ask me about Qasim's projects, skills, education or how to contact him.</p>
       </div>
       <div class="chat-presets">
-        <button type="button" class="chat-chip" data-preset="projects" data-i18n="chip_projects">Projects</button>
-        <button type="button" class="chat-chip" data-preset="skills" data-i18n="chip_skills">Skills</button>
-        <button type="button" class="chat-chip" data-preset="contact" data-i18n="chip_contact">Contact</button>
+        <button type="button" class="chat-chip" data-preset="projects">Projects</button>
+        <button type="button" class="chat-chip" data-preset="skills">Skills</button>
+        <button type="button" class="chat-chip" data-preset="contact">Contact</button>
       </div>
       <form class="chat-form" data-chat-form>
         <input type="text" class="chat-input" placeholder="Ask a question..." aria-label="Ask a question" data-chat-input>
-        <button type="submit" class="chat-send" data-i18n="chat_send">Send</button>
+        <button type="submit" class="chat-send">Send</button>
       </form>
     </div>
     <button class="chat-toggle" type="button" aria-label="Open portfolio assistant" aria-controls="chat-panel" aria-expanded="false" data-chat-toggle>
@@ -292,7 +307,7 @@
   </div>
 
   <script src="./data/projects.js"></script>
-  <script src="./assets/js/script.js?v=5"></script>
+  <script src="./assets/js/script.js?v=7"></script>
 
   <script>
     if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
