@@ -7,7 +7,7 @@
  */
 
 const CACHE_NAME   = 'qasim-portfolio-v6';
-const STATIC_CACHE = 'qasim-static-v7';
+const STATIC_CACHE = 'qasim-static-v8';
 const CDN_CACHE    = 'qasim-cdn-v5';
 
 // ---- Core local assets to pre-cache on install ----
@@ -17,7 +17,7 @@ const LOCAL_ASSETS = [
   './assets/css/style.css',
   './assets/js/script.js',
   './data/projects.js',
-  './assets/images/Qasim.Png',
+  './assets/images/profile.jpg',
   './manifest.json'
 ];
 

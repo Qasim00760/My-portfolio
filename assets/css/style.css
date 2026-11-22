@@ -298,9 +298,8 @@ button { cursor: pointer; background: none; border: 0; }
   justify-self: end;
   width: 100%;
   max-width: min(380px, 100%);
-  aspect-ratio: 300 / 325;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   overflow: hidden;
   background: var(--surface);
 }
