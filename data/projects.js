@@ -44,12 +44,12 @@ window.PROJECTS = [
     live: "https://mq-walmart-retail-sales-eda.streamlit.app/"
   },
   {
-    title: "Hospital Emergency Room Performance & Prediction",
+    title: "ER Wait Time Analysis & Prediction",
     category: "data-analytics",
-    description: "Studies emergency room admissions and wait times, and forecasts patient load to help plan staffing.",
-    tech: ["Scikit-Learn", "Pandas", "Healthcare AI"],
+    description: "Analyzes 5,000 emergency room visits to find what drives patient waits, and predicts a new patient's wait at arrival with a leakage-free Gradient Boosting model (R2 0.94).",
+    tech: ["Scikit-Learn", "Pandas", "Seaborn", "Streamlit"],
     image: "assets/images/Hospital Emergency_Room_Performance & Prediction_Project.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
+    github: "https://github.com/Qasim00760/er-wait-time-prediction",
     live: ""
   },
 
