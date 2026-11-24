@@ -6,8 +6,8 @@
  * ============================================================
  */
 
-const CACHE_NAME   = 'qasim-portfolio-v6';
-const STATIC_CACHE = 'qasim-static-v8';
+const CACHE_NAME   = 'qasim-portfolio-v7';
+const STATIC_CACHE = 'qasim-static-v9';
 const CDN_CACHE    = 'qasim-cdn-v5';
 
 // ---- Core local assets to pre-cache on install ----

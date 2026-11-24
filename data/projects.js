@@ -20,10 +20,10 @@ window.PROJECTS = [
     title: "Student Marks Analysis",
     category: "data-analytics",
     description: "Analyzes student scores to find the subjects with the widest grade spread and visualizes how marks are distributed.",
-    tech: ["Python", "Pandas", "Matplotlib"],
-    image: "assets/images/STUDENT MARKS ANALAYSIS.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
-    live: ""
+    tech: ["Python", "Pandas", "Matplotlib", "Streamlit"],
+    image: "assets/images/student-marks-analysis.png",
+    github: "https://github.com/Qasim00760/student-marks-analysis",
+    live: "https://mq-student-marks-analysis.streamlit.app/"
   },
   {
     title: "Cricket Score Analysis",
