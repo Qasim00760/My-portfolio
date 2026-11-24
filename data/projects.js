@@ -48,7 +48,7 @@ window.PROJECTS = [
     category: "data-analytics",
     description: "Analyzes 5,000 emergency room visits to find what drives patient waits, and predicts a new patient's wait at arrival with a leakage-free Gradient Boosting model (R2 0.94).",
     tech: ["Scikit-Learn", "Pandas", "Seaborn", "Streamlit"],
-    image: "assets/images/er-wait-time-prediction.jpg?v=2",
+    image: "assets/images/er-wait-time-prediction.jpg?v=3",
     github: "https://github.com/Qasim00760/er-wait-time-prediction",
     live: "https://mq-er-wait-time-prediction.streamlit.app/"
   },
@@ -59,7 +59,7 @@ window.PROJECTS = [
     category: "machine-learning",
     description: "Gradient Boosting model trained on 96k UK used car listings that prices a car from its make, model, age, mileage and specs to within 6.6% on average (R2 0.97).",
     tech: ["Scikit-Learn", "Gradient Boosting", "Pandas", "Streamlit"],
-    image: "assets/images/car-price-prediction.jpg?v=2",
+    image: "assets/images/car-price-prediction.jpg?v=3",
     github: "https://github.com/Qasim00760/car-price-prediction",
     live: "https://mq-car-price-prediction.streamlit.app/"
   },
@@ -68,7 +68,7 @@ window.PROJECTS = [
     category: "machine-learning",
     description: "Predicts a tunnel boring machine's next-stroke penetration from thrust, torque, RPM, rock quality and recent strokes, validated on unseen tunnel sections, and flags slow strokes ahead of time.",
     tech: ["Random Forest", "Scikit-Learn", "Pandas", "Streamlit"],
-    image: "assets/images/tbm-penetration-prediction.jpg?v=2",
+    image: "assets/images/tbm-penetration-prediction.jpg?v=3",
     github: "https://github.com/Qasim00760/tbm-penetration-prediction",
     live: "https://mq-tbm-penetration-prediction.streamlit.app/"
   },
@@ -77,7 +77,7 @@ window.PROJECTS = [
     category: "machine-learning",
     description: "Scores each employee's risk of leaving and explains the score. Logistic Regression beat Random Forest and XGBoost in cross-validation (ROC-AUC 0.83) and catches 74% of leavers.",
     tech: ["Scikit-Learn", "XGBoost", "Classification", "Streamlit"],
-    image: "assets/images/employee-attrition-prediction.jpg?v=2",
+    image: "assets/images/employee-attrition-prediction.jpg?v=3",
     github: "https://github.com/Qasim00760/employee-attrition-prediction",
     live: "https://mq-employee-attrition-prediction.streamlit.app/"
   },
@@ -86,7 +86,7 @@ window.PROJECTS = [
     category: "machine-learning",
     description: "Scores a news article's chance of going popular on social media before it is published, trained on 39k real Mashable articles and tested on newer ones (ROC-AUC 0.74).",
     tech: ["Gradient Boosting", "Scikit-Learn", "Pandas", "Streamlit"],
-    image: "assets/images/social-media-shares-prediction.jpg?v=2",
+    image: "assets/images/social-media-shares-prediction.jpg?v=3",
     github: "https://github.com/Qasim00760/social-media-shares-prediction",
     live: "https://mq-social-media-shares-prediction.streamlit.app/"
   },
