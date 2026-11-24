@@ -29,10 +29,10 @@ window.PROJECTS = [
     title: "Cricket Score Analysis",
     category: "data-analytics",
     description: "Explores match data through run rates, wicket trends and strike patterns, with run-curve charts for each game situation.",
-    tech: ["Python", "NumPy", "Seaborn"],
-    image: "assets/images/CRICKET  SCORE ANALYSIS.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
-    live: ""
+    tech: ["Python", "Pandas", "Seaborn", "Streamlit"],
+    image: "assets/images/cricket-score-analysis.png",
+    github: "https://github.com/Qasim00760/cricket-score-analysis",
+    live: "https://mq-cricket-score-analysis.streamlit.app/"
   },
   {
     title: "Exploratory Data Analysis (Retail)",
