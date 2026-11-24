@@ -55,12 +55,12 @@ window.PROJECTS = [
 
   // ---- Machine Learning ----
   {
-    title: "Car Price Prediction",
+    title: "UK Used Car Price Prediction",
     category: "machine-learning",
-    description: "Regression models that estimate a fair price for used cars from features like mileage, year and specifications.",
-    tech: ["Scikit-Learn", "Regression", "Python"],
+    description: "Gradient Boosting model trained on 96k UK used car listings that prices a car from its make, model, age, mileage and specs to within 6.6% on average (R2 0.97).",
+    tech: ["Scikit-Learn", "Gradient Boosting", "Pandas", "Streamlit"],
     image: "assets/images/car price prediction.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
+    github: "https://github.com/Qasim00760/car-price-prediction",
     live: ""
   },
   {
