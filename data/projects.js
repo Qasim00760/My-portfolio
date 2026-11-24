@@ -21,7 +21,7 @@ window.PROJECTS = [
     category: "data-analytics",
     description: "Analyzes student scores to find the subjects with the widest grade spread and visualizes how marks are distributed.",
     tech: ["Python", "Pandas", "Matplotlib", "Streamlit"],
-    image: "assets/images/student-marks-analysis.jpg?v=2",
+    image: "assets/images/student-marks-analysis.jpg?v=3",
     github: "https://github.com/Qasim00760/student-marks-analysis",
     live: "https://mq-student-marks-analysis.streamlit.app/"
   },
@@ -30,7 +30,7 @@ window.PROJECTS = [
     category: "data-analytics",
     description: "Explores match data through run rates, wicket trends and strike patterns, with run-curve charts for each game situation.",
     tech: ["Python", "Pandas", "Seaborn", "Streamlit"],
-    image: "assets/images/cricket-score-analysis.jpg?v=2",
+    image: "assets/images/cricket-score-analysis.jpg?v=3",
     github: "https://github.com/Qasim00760/cricket-score-analysis",
     live: "https://mq-cricket-score-analysis.streamlit.app/"
   },
@@ -39,7 +39,7 @@ window.PROJECTS = [
     category: "data-analytics",
     description: "Explores 421k weekly sales records from 45 Walmart stores to measure holiday peaks, store size effects and which factors actually drive sales.",
     tech: ["Python", "Pandas", "Seaborn", "SciPy", "Streamlit"],
-    image: "assets/images/walmart-retail-sales-eda.jpg?v=2",
+    image: "assets/images/walmart-retail-sales-eda.jpg?v=3",
     github: "https://github.com/Qasim00760/walmart-retail-sales-eda",
     live: "https://mq-walmart-retail-sales-eda.streamlit.app/"
   },
