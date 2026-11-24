@@ -64,12 +64,12 @@ window.PROJECTS = [
     live: "https://mq-car-price-prediction.streamlit.app/"
   },
   {
-    title: "Machine Learning for TBM Penetration Prediction",
+    title: "TBM Penetration Prediction",
     category: "machine-learning",
-    description: "A Random Forest model that predicts tunnel boring machine penetration rates from machine sensor and rock data.",
-    tech: ["Random Forest", "Predictive", "Python"],
+    description: "Predicts a tunnel boring machine's next-stroke penetration from thrust, torque, RPM, rock quality and recent strokes, validated on unseen tunnel sections, and flags slow strokes ahead of time.",
+    tech: ["Random Forest", "Scikit-Learn", "Pandas", "Streamlit"],
     image: "assets/images/Machine Learning For TBM Penetration Prediction.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
+    github: "https://github.com/Qasim00760/tbm-penetration-prediction",
     live: ""
   },
   {
