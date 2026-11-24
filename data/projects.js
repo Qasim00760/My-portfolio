@@ -70,7 +70,7 @@ window.PROJECTS = [
     tech: ["Random Forest", "Scikit-Learn", "Pandas", "Streamlit"],
     image: "assets/images/Machine Learning For TBM Penetration Prediction.png",
     github: "https://github.com/Qasim00760/tbm-penetration-prediction",
-    live: ""
+    live: "https://mq-tbm-penetration-prediction.streamlit.app/"
   },
   {
     title: "Employee Attrition Prediction",
