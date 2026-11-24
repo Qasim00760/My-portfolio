@@ -50,7 +50,7 @@ window.PROJECTS = [
     tech: ["Scikit-Learn", "Pandas", "Seaborn", "Streamlit"],
     image: "assets/images/Hospital Emergency_Room_Performance & Prediction_Project.png",
     github: "https://github.com/Qasim00760/er-wait-time-prediction",
-    live: ""
+    live: "https://mq-er-wait-time-prediction.streamlit.app/"
   },
 
   // ---- Machine Learning ----
