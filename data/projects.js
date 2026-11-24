@@ -75,10 +75,10 @@ window.PROJECTS = [
   {
     title: "Employee Attrition Prediction",
     category: "machine-learning",
-    description: "An XGBoost classifier that flags employees at risk of leaving and explains the factors behind each prediction.",
-    tech: ["XGBoost", "Classification", "Analytics"],
-    image: "assets/images/Neematte Media Corp.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
+    description: "Scores each employee's risk of leaving and explains the score. Logistic Regression beat Random Forest and XGBoost in cross-validation (ROC-AUC 0.83) and catches 74% of leavers.",
+    tech: ["Scikit-Learn", "XGBoost", "Classification", "Streamlit"],
+    image: "assets/images/employee-attrition-prediction.png",
+    github: "https://github.com/Qasim00760/employee-attrition-prediction",
     live: ""
   },
   {
