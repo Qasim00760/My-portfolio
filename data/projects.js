@@ -88,7 +88,7 @@ window.PROJECTS = [
     tech: ["Gradient Boosting", "Scikit-Learn", "Pandas", "Streamlit"],
     image: "assets/images/Advance_social_media.png",
     github: "https://github.com/Qasim00760/social-media-shares-prediction",
-    live: ""
+    live: "https://mq-social-media-shares-prediction.streamlit.app/"
   },
 
   // ---- Computer Vision ----
