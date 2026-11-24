@@ -79,7 +79,7 @@ window.PROJECTS = [
     tech: ["Scikit-Learn", "XGBoost", "Classification", "Streamlit"],
     image: "assets/images/employee-attrition-prediction.png",
     github: "https://github.com/Qasim00760/employee-attrition-prediction",
-    live: ""
+    live: "https://mq-employee-attrition-prediction.streamlit.app/"
   },
   {
     title: "Advanced Social Media Engagement Prediction",
