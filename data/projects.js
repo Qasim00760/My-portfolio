@@ -41,7 +41,7 @@ window.PROJECTS = [
     tech: ["Python", "Pandas", "Seaborn", "SciPy", "Streamlit"],
     image: "assets/images/walmart-retail-sales-eda.jpg?v=2",
     github: "https://github.com/Qasim00760/walmart-retail-sales-eda",
-    live: ""
+    live: "https://mq-walmart-retail-sales-eda.streamlit.app/"
   },
   {
     title: "Hospital Emergency Room Performance & Prediction",
