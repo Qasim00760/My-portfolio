@@ -86,7 +86,7 @@ window.PROJECTS = [
     category: "machine-learning",
     description: "Scores a news article's chance of going popular on social media before it is published, trained on 39k real Mashable articles and tested on newer ones (ROC-AUC 0.74).",
     tech: ["Gradient Boosting", "Scikit-Learn", "Pandas", "Streamlit"],
-    image: "assets/images/Advance_social_media.png",
+    image: "assets/images/social-media-shares-prediction.jpg?v=2",
     github: "https://github.com/Qasim00760/social-media-shares-prediction",
     live: "https://mq-social-media-shares-prediction.streamlit.app/"
   },
