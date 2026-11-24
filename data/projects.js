@@ -82,12 +82,12 @@ window.PROJECTS = [
     live: "https://mq-employee-attrition-prediction.streamlit.app/"
   },
   {
-    title: "Advanced Social Media Engagement Prediction",
+    title: "Social Media Shares Prediction",
     category: "machine-learning",
-    description: "Uses NLP features and a neural network to predict how much engagement a social media post will get.",
-    tech: ["Deep Learning", "NLP", "Python"],
+    description: "Scores a news article's chance of going popular on social media before it is published, trained on 39k real Mashable articles and tested on newer ones (ROC-AUC 0.74).",
+    tech: ["Gradient Boosting", "Scikit-Learn", "Pandas", "Streamlit"],
     image: "assets/images/Advance_social_media.png",
-    github: "https://github.com/Qasim00760/Mentorship-Program-Devsil",
+    github: "https://github.com/Qasim00760/social-media-shares-prediction",
     live: ""
   },
 
