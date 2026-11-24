@@ -61,7 +61,7 @@ window.PROJECTS = [
     tech: ["Scikit-Learn", "Gradient Boosting", "Pandas", "Streamlit"],
     image: "assets/images/car price prediction.png",
     github: "https://github.com/Qasim00760/car-price-prediction",
-    live: ""
+    live: "https://mq-car-price-prediction.streamlit.app/"
   },
   {
     title: "Machine Learning for TBM Penetration Prediction",
