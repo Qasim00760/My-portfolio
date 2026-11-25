@@ -99,7 +99,7 @@ window.PROJECTS = [
     tech: ["OpenCV.js", "OpenCV", "Python", "JavaScript"],
     image: "assets/images/Document_scanner.png",
     github: "https://github.com/Qasim00760/document-scanner",
-    live: "https://qasimdocscan.netlify.app/"
+    live: "https://mq-document-scanner.netlify.app/"
   },
   {
     title: "Parking Space Occupancy Detector",
