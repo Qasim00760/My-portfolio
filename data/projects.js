@@ -102,13 +102,13 @@ window.PROJECTS = [
     live: "https://mq-document-scanner.netlify.app/"
   },
   {
-    title: "Parking Space Occupancy Detector",
+    title: "Parking Space Detector",
     category: "computer-vision",
-    description: "Detects vehicles with YOLOv8 and marks each parking space as free, partially occupied or occupied in a Streamlit app.",
-    tech: ["YOLOv8", "OpenCV", "Streamlit", "Python"],
-    image: "assets/images/parking system.png",
-    github: "https://github.com/Qasim00760/Parking-Space-Occupancy-Detector",
-    live: "https://parking-space-occupancy-detector-4xb2wcyiexrjjahqsaxz46.streamlit.app/"
+    description: "Counts free and occupied parking bays in an aerial photo with a retrained YOLOv8 model. The model runs in the browser through ONNX Runtime Web inside a React and TypeScript app built with Node.js and Vite.",
+    tech: ["YOLOv8", "ONNX Runtime Web", "React", "TypeScript", "Node.js"],
+    image: "assets/images/parking-space-detector.jpg?v=1",
+    github: "https://github.com/Qasim00760/parking-space-detector",
+    live: "https://mq-parking-space-detector.netlify.app/"
   },
   {
     title: "FYP AI Detection",
