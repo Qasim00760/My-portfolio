@@ -95,11 +95,11 @@ window.PROJECTS = [
   {
     title: "Document Scanner",
     category: "computer-vision",
-    description: "Detects page edges in a photo, straightens the perspective and cleans up contrast to produce a flat scan.",
-    tech: ["OpenCV", "Computer Vision", "Python"],
+    description: "Turns a phone photo of a document into a flat, clean scan: finds the page outline, corrects the perspective, removes the desk and boosts contrast. Runs fully in the browser with OpenCV.js, with a tested Python version of the same pipeline.",
+    tech: ["OpenCV.js", "OpenCV", "Python", "JavaScript"],
     image: "assets/images/Document_scanner.png",
-    github: "https://github.com/Qasim00760/Document_Scanner_App",
-    live: ""
+    github: "https://github.com/Qasim00760/document-scanner",
+    live: "https://qasimdocscan.netlify.app/"
   },
   {
     title: "Parking Space Occupancy Detector",
