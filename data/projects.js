@@ -111,13 +111,13 @@ window.PROJECTS = [
     live: "https://mq-parking-space-detector.netlify.app/"
   },
   {
-    title: "FYP AI Detection",
+    title: "Helmet Violation Detection (FYP)",
     category: "computer-vision",
-    description: "An AI detection web app built with machine learning, with a live demo on Hugging Face Spaces.",
-    tech: ["AI Detection", "Machine Learning", "Web App"],
-    image: "assets/images/FYP-AI-Detection.png",
-    github: "https://github.com/Qasim00760/FYP-AI-Detection-",
-    live: "https://huggingface.co/spaces/qasimktk/ibscs-app"
+    description: "My final year project, rebuilt: a YOLOv8 model finds motorcycle riders without helmets in a live camera feed or photo, reads the number plate with OCR, and an officer confirms a numbered challan. Runs in the browser with WebGPU through ONNX Runtime Web.",
+    tech: ["YOLOv8", "ONNX Runtime Web", "WebGPU", "Tesseract.js", "React", "Node.js"],
+    image: "assets/images/helmet-violation-detection.jpg?v=1",
+    github: "https://github.com/Qasim00760/helmet-violation-detection",
+    live: "https://mq-helmet-violation-detection.netlify.app/"
   },
   {
     title: "Road Pothole Detection",
