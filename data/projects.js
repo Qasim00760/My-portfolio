@@ -97,7 +97,7 @@ window.PROJECTS = [
     category: "computer-vision",
     description: "Turns a phone photo of a document into a flat, clean scan: finds the page outline, corrects the perspective, removes the desk and boosts contrast. Runs fully in the browser with OpenCV.js, with a tested Python version of the same pipeline.",
     tech: ["OpenCV.js", "OpenCV", "Python", "JavaScript"],
-    image: "assets/images/Document_scanner.png",
+    image: "assets/images/document-scanner.jpg?v=1",
     github: "https://github.com/Qasim00760/document-scanner",
     live: "https://mq-document-scanner.netlify.app/"
   },
